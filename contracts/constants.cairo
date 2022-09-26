@@ -33,7 +33,7 @@ const decay_exp = 0;
 // Plot parameters
 //
 // number of points to plot along each axis
-const num_pts = 20;
+const num_pts = 10;
 // min and max values for axes
 const x_min = 0 * SCALE_FP;
 const x_max = 10 * SCALE_FP;
