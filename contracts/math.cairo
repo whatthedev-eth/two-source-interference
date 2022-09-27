@@ -49,31 +49,7 @@ func distance_two_points{range_check_ptr}(x0: felt, y0: felt, x: felt, y: felt) 
 }
 
 @view
-func cosine_8th{range_check_ptr}(theta: felt) -> felt {
-
-    //
-    // cos(theta) ~= 1 - theta^2/2! + theta^4/4! - theta^6/6! + theta^8/8!
-    //
-
-    let theta_shifted = theta_shifter(theta);
-
-    let theta_2 = mul_fp(theta_shifted, theta_shifted);
-    let theta_4 = mul_fp(theta_2, theta_2);
-    let theta_6 = mul_fp(theta_2, theta_4);
-    let theta_8 = mul_fp(theta_2, theta_6);
-
-    let theta_2_div2 = div_fp_ul(theta_2, 2);
-    let theta_4_div24 = div_fp_ul(theta_4, 24);
-    let theta_6_div720 = div_fp_ul(theta_6, 720);
-    let theta_8_div40320 = div_fp_ul(theta_8, 40320);
-
-    let value = 1*SCALE_FP - theta_2_div2 + theta_4_div24 - theta_6_div720 + theta_8_div40320;
-
-    return value;
-}
-
-@view
-func theta_shifter{range_check_ptr}(theta: felt) -> felt {
+func theta_shifter{range_check_ptr}(theta: felt) -> (value: felt) {
     alloc_locals;
 
     //
@@ -83,7 +59,7 @@ func theta_shifter{range_check_ptr}(theta: felt) -> felt {
     local range_check_ptr = range_check_ptr;
     local theta_abs = abs_value(theta);
 
-    // if theta_abs >= pi, then shift to range theta_abs < +pi
+    // if theta_abs >= pi, then shift to range theta_abs < pi
     let bool_size = is_le(PI, theta_abs);
     if (bool_size == 1) {
         //
@@ -109,5 +85,29 @@ func theta_shifter{range_check_ptr}(theta: felt) -> felt {
         tempvar range_check_ptr = range_check_ptr;
     }
 
-    return theta_shifted;
+    return (value=theta_shifted);
+}
+
+@view
+func cosine_8th{range_check_ptr}(theta: felt) -> (value: felt) {
+
+    //
+    // cos(theta) ~= 1 - theta^2/2! + theta^4/4! - theta^6/6! + theta^8/8!
+    //
+
+    let (theta_shifted) = theta_shifter(theta);
+
+    let theta_2 = mul_fp(theta_shifted, theta_shifted);
+    let theta_4 = mul_fp(theta_2, theta_2);
+    let theta_6 = mul_fp(theta_2, theta_4);
+    let theta_8 = mul_fp(theta_2, theta_6);
+
+    let theta_2_div2 = div_fp_ul(theta_2, 2);
+    let theta_4_div24 = div_fp_ul(theta_4, 24);
+    let theta_6_div720 = div_fp_ul(theta_6, 720);
+    let theta_8_div40320 = div_fp_ul(theta_8, 40320);
+
+    let value = 1*SCALE_FP - theta_2_div2 + theta_4_div24 - theta_6_div720 + theta_8_div40320;
+
+    return (value=value);
 }

@@ -37,7 +37,7 @@ func wave_function{range_check_ptr}(t: felt, x: felt, y: felt, common: Common_pa
     let theta = k_r - omega_t + phi;
                               
     // wave function undecayed
-    let wave_fn = cosine_8th(theta);
+    let (wave_fn) = cosine_8th(theta);
     
     // decayed wave function
     //decayed_wave_fn = wave_fn * r**decay_exp;

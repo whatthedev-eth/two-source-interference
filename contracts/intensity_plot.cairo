@@ -3,7 +3,7 @@
 from starkware.cairo.common.alloc import alloc
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 
-from contracts.constants import TWO_PI, v, phi_1, phi_2, decay_exp, num_pts, x_min, x_max, y_min, y_max
+from contracts.constants import TWO_PI, v, phi_1, phi_2, decay_exp, x_min, x_max, y_min, y_max
 from contracts.math import mul_fp, div_fp, div_fp_ul
 from contracts.structs import Common_params, Indiv_params, Two_waves_params
 from contracts.wave_physics import intensity, wave_sum, wave_function
@@ -33,7 +33,7 @@ from contracts.wave_physics import intensity, wave_sum, wave_function
 //
 // Functions to fill arrays
 //
-func intensity_s_filler{range_check_ptr}(t: felt, intensity_s: felt*, x_s: felt*, y_s: felt*, num_pts_x: felt, num_pts_y: felt, num_pts_y_const: felt, waves: Two_waves_params) { 
+func intensity_s_filler{range_check_ptr}(t: felt, intensity_s: felt*, x_s: felt*, y_s: felt*, num_pts_x: felt, num_pts_y: felt, num_pts_x_const: felt, waves: Two_waves_params) { 
     alloc_locals; 
 
     if (num_pts_x == 0) {
@@ -44,17 +44,31 @@ func intensity_s_filler{range_check_ptr}(t: felt, intensity_s: felt*, x_s: felt*
     }
     
     // otherwise, call recursively for x
-    intensity_s_filler(t, intensity_s + 1, x_s + 1, y_s, num_pts_x - 1, num_pts_y, num_pts_y_const, waves);
+    //intensity_s_filler(t, intensity_s + 1, x_s + 1, y_s, num_pts_x - 1, num_pts_y, num_pts_y_const, waves);
         
     // begin at intensity_s[num_pts_x - 1], x_s[num_pts_x - 1], num_pts_x = 1 (after return from num_pts_x = 0)
-    tempvar x = x_s[0];
+    //tempvar x = x_s[0];
         
     // NESTED recursive call for y, beginning with num_pts_x = 1
-    intensity_s_filler(t, intensity_s + num_pts, x_s, y_s + 1, num_pts_x, num_pts_y - 1, num_pts_y_const, waves);
+    //intensity_s_filler(t, intensity_s + num_pts_y_const, x_s, y_s + 1, num_pts_x, num_pts_y - 1, num_pts_y_const, waves);
         
     // begin at intensity_s[num_pts_x * num_pts_y - 1], y_s[num_pts_y - 1], num_pts_y = 1
+    //tempvar y = y_s[0];
+
+
+    // otherwise, call recursively for y
+    intensity_s_filler(t, intensity_s + 1, x_s, y_s + 1, num_pts_x, num_pts_y - 1, num_pts_x_const, waves);
+        
+    // begin at intensity_s[num_pts_y - 1], y_s[num_pts_y - 1], num_pts_y = 1 (after return from num_pts_y = 0)
     tempvar y = y_s[0];
-            
+        
+    // NESTED recursive call for x, beginning with num_pts_y = 1
+    intensity_s_filler(t, intensity_s + num_pts_x_const, x_s + 1, y_s, num_pts_x - 1, num_pts_y, num_pts_x_const, waves);
+        
+    // begin at intensity_s[num_pts_x * num_pts_y - 1], x_s[num_pts_x - 1], num_pts_x = 1
+    tempvar x = x_s[0];
+
+
     let wave_fn_1 = wave_function(t, x, y, waves.common, waves.wave_1);
     let wave_fn_2 = wave_function(t, x, y, waves.common, waves.wave_2);
 
@@ -84,7 +98,7 @@ func coordinate_s_filler{}(c_s: felt*, c_min: felt, delta_c: felt, num_pts: felt
 //  External function for input of f and d, and then create plot data
 //
 @external
-func intensity_plot{range_check_ptr}(f: felt, d: felt) -> () {
+func intensity_plot_arr{range_check_ptr}(num_pts: felt, f: felt, d: felt) -> (intensity_s_len: felt, intensity_s: felt*) {
     alloc_locals;
 
     // allocate memory segments arrays
@@ -129,5 +143,8 @@ func intensity_plot{range_check_ptr}(f: felt, d: felt) -> () {
     // fill intensity_s array
     intensity_s_filler{}(t, intensity_s, x_s, y_s, num_pts, num_pts, num_pts, waves);
 
-    return();
+    // calculate intensity_s_len
+    let intensity_s_len = num_pts * num_pts;
+
+    return(intensity_s_len=intensity_s_len, intensity_s=intensity_s);
 }

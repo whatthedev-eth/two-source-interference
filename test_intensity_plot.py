@@ -1,3 +1,4 @@
+from re import S
 import pytest
 import os
 from starkware.starknet.testing.starknet import Starknet
@@ -6,12 +7,13 @@ import numpy as np
 
 # Constants from constants.cairo contract
 #
-# Fixed point math constants
 #
+# Fixed point math constants
 SCALE_FP = 10**20
 SCALE_FP_SQRT = 10**10
 RANGE_CHECK_BOUND = 2**120
-# these are not used yet
+
+# Constants for felts
 PRIME = 3618502788666131213697322783095070105623107215331596699973092056135872020481
 HALF_PRIME = (
     1809251394333065606848661391547535052811553607665798349986546028067936010240
@@ -20,8 +22,12 @@ HALF_PRIME = (
 #
 # Math constants
 #
+# Fixed point values
 TWO_PI = 6283185 * SCALE_FP / 1000000
 PI = TWO_PI / 2
+# Non fixed point values
+TWO_PI_no_fp = TWO_PI / SCALE_FP
+PI_no_fp = PI / SCALE_FP
 
 
 #
@@ -40,10 +46,11 @@ def wave_sum(wave_1_fn, wave_2_fn):
 
 def theta_shifter(theta):
     # shifts theta so it is in range -pi <= theta <= +pi
+    # using PI_no_fp instead of np.pi to match cairo file
     theta_abs = abs(theta)
-    if theta_abs >= np.pi:
-        cycles_to_shift = 1 + ((theta_abs - np.pi) / (2 * np.pi)) // 1
-        theta_abs_shifted = theta_abs - (2 * np.pi * cycles_to_shift)
+    if theta_abs >= PI_no_fp:
+        cycles_to_shift = 1 + ((theta_abs - PI_no_fp) / (TWO_PI_no_fp)) // 1
+        theta_abs_shifted = theta_abs - (TWO_PI_no_fp * cycles_to_shift)
         if theta >= 0:
             theta_shifted = theta_abs_shifted
         else:
@@ -114,10 +121,12 @@ t = 0.0 * SCALE_FP
 #
 # Input parameters
 #
+# number of points to plot along each axis
+num_pts = 5
 # frequency
-f = 509 * SCALE_FP / 1000
+f = int(509 * SCALE_FP / 1000)
 # source separation
-d = 2 * SCALE_FP
+d = int(2 * SCALE_FP)
 
 
 #
@@ -131,8 +140,6 @@ k = (omega / v) * SCALE_FP
 #
 # Plot parameters
 #
-# number of points to plot along each axis
-num_pts = 10
 # min and max values for axes
 x_min = 0 * SCALE_FP
 x_max = 10 * SCALE_FP
@@ -161,7 +168,7 @@ wave_1 = {"x0": x0_1 / SCALE_FP, "y0": y0_1 / SCALE_FP, "phi": phi_1 / SCALE_FP}
 wave_2 = {"x0": x0_2 / SCALE_FP, "y0": y0_2 / SCALE_FP, "phi": phi_2 / SCALE_FP}
 
 
-def intensity_s(f, d):
+def intensity_plot_arr(num_pts, f, d):
     # wave function arrays filled w/loops because cannot use ">" w arrays in functions
     for p in range(0, num_pts):
         x = x_s[p] / SCALE_FP
@@ -182,7 +189,7 @@ def intensity_s(f, d):
 #
 
 # The path to the contract source code.
-CONTRACT_FILE = os.path.join(os.path.dirname(__file__), "math_testing.cairo")
+CONTRACT_FILE = os.path.join("contracts", "intensity_plot.cairo")
 
 
 @pytest.mark.asyncio
@@ -194,52 +201,36 @@ async def test():
     )
     print()  # grab a newline here
 
-    #
-    # Test theta_shifter and cosine_8th
-    #
-    num_tests = 17
-    for i in range(num_tests):
-        print()  # grab a newline here
+    # Cairo intensity array
+    ret = await contract.intensity_plot_arr(num_pts=num_pts, f=f, d=d).call()
+    # Python intensity array
+    intensity_s = intensity_plot_arr(num_pts=num_pts, f=f / SCALE_FP, d=d / SCALE_FP)
 
-        theta = int((i * PI / 4) - (2 * PI))
-        theta_no_fp = theta / SCALE_FP
+    print(f"> intensities for num_pts={num_pts}, f={f}, d={d}) returns:")
+    print()
+    print(f"> intensity_plot_arr from cairo     member")
+    print(f"> intensity_s_arr from python")
 
-        print(f"> theta       = {theta}")
-        print(f"> theta_no_fp = {theta_no_fp}")
-        # add '>' before our print messages to indicate they are our messages
+    # print array members one line at a time
 
-        # Call theta_shifter() with theta and print out return value
-        ret = await contract.theta_shifter(theta=theta).call()
-        if ret.result.theta_shifted >= HALF_PRIME:
-            result = ret.result.theta_shifted - PRIME
-        else:
-            result = ret.result.theta_shifted
-        print(f">      theta_shifter(theta) returns: {result}")
+    # for i in range(num_pts**2):
+    # arr_member = ret.result[0][i]
+    # if arr_member >= HALF_PRIME:
+    #    result = arr_member - PRIME
+    # else:
+    #    result = arr_member
+    # print(f">   {i}         {result}")
+    # print(f">   {i}         {arr_member}")
 
-        theta_shifter_py_no_fp = theta_shifter(theta_no_fp)
-        print(f">   theta_shifter_py(theta) returns: {theta_shifter_py_no_fp}")
+    indexer = 0
+    for p in range(0, num_pts):
+        for q in range(0, num_pts):
+            print()
 
-        theta_shifter_py = theta_shifter_py_no_fp * SCALE_FP
-        if theta_shifter_py >= HALF_PRIME:
-            result_py = theta_shifter_py - PRIME
-        else:
-            result_py = theta_shifter_py
-        print(f">   theta_shifter_py(theta) returns: {result_py}")
+            intensity_cairo = ret.result[0][q + indexer]
+            print(f"> {intensity_cairo}                 {q + indexer}")
 
-        # Call cosine_8th() with theta and print out return value
-        ret = await contract.cosine_8th(theta=theta).call()
-        if ret.result.value >= HALF_PRIME:
-            result = ret.result.value - PRIME
-        else:
-            result = ret.result.value
-        print(f">          cosine_8th(theta) returns: {result}")
+            intensity_py = int(intensity_s[q, p] * SCALE_FP)
+            print(f"> {intensity_py}")
 
-        cos_8th_py = cosine_n_terms(theta_no_fp, n)
-        # if cos_8th_py >= HALF_PRIME:
-        #    result_py = cos_8th_py - PRIME
-        # else:
-        #    result_py = cos_8th_py
-        # print(f">   cosine_n_terms(theta, 5) returns: {result_py}")
-        print(f">   cosine_n_terms(theta, 5) returns: {cos_8th_py}")
-
-    # print(f">      intensity_plot returns: {result}")
+        indexer += num_pts
