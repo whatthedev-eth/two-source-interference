@@ -122,7 +122,7 @@ t = 0.0 * SCALE_FP
 # Input parameters
 #
 # number of points to plot along each axis
-num_pts = 5
+num_pts = 25
 # frequency
 f = int(509 * SCALE_FP / 1000)
 # source separation
@@ -212,15 +212,6 @@ async def test():
     print(f"> intensity_s_arr from python")
 
     # print array members one line at a time
-
-    # for i in range(num_pts**2):
-    # arr_member = ret.result[0][i]
-    # if arr_member >= HALF_PRIME:
-    #    result = arr_member - PRIME
-    # else:
-    #    result = arr_member
-    # print(f">   {i}         {result}")
-    # print(f">   {i}         {arr_member}")
 
     indexer = 0
     for p in range(0, num_pts):
