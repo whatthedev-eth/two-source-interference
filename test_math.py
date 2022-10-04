@@ -83,24 +83,24 @@ async def test():
     contract = await starknet.deploy(
         source=CONTRACT_FILE,
     )
-    print()  # grab a newline here
+    print()  # print a blank line
 
     #
     # Test theta_shifter and cosine_8th
     #
-    # pick an odd number of tests to run
+    # Pick an odd number of tests to run
     num_tests = 51
     for i in range(num_tests):
-        print()  # grab a newline here
+        print()
 
         theta = int((i - ((num_tests - 1) / 2)) * PI / 4)
         theta_no_fp = theta / SCALE_FP
 
         print(f"> theta       = {theta}")
         print(f"> theta_no_fp = {theta_no_fp}")
-        # add '>' before our print messages to indicate they are our messages
+        # Add '>' before our print messages to indicate they are our messages
 
-        # Call theta_shifter() with theta and print out return value
+        # Call theta_shifter(theta) and print out return value
         ret = await contract.theta_shifter(theta=theta).call()
         if ret.result.value >= HALF_PRIME:
             result = ret.result.value - PRIME
@@ -128,10 +128,5 @@ async def test():
         cos_8th_py_no_fp = cosine_n_terms(theta_no_fp, n)
         # Scale up by SCALE_FP for comparison
         cos_8th_py = int(cos_8th_py_no_fp * SCALE_FP)
-        # if cos_8th_py >= HALF_PRIME:
-        #    result_py = cos_8th_py - PRIME
-        # else:
-        #    result_py = cos_8th_py
-        # print(f">   cosine_n_terms(theta, 5) returns: {result_py}")
         print(f">   cosine_n_terms(theta, 5) returns: {cos_8th_py}")
         print(f">            or, with no fp, returns: {cos_8th_py_no_fp}")

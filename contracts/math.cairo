@@ -7,13 +7,14 @@ from starkware.cairo.common.math_cmp import is_le
 
 from contracts.constants import SCALE_FP, SCALE_FP_SQRT, RANGE_CHECK_BOUND, TWO_PI, PI
 
-
+// Takes square root of fixed point quantity "x"
 func sqrt_fp{range_check_ptr}(x: felt) -> felt {
-    let x_ = sqrt(x); // notice: sqrt() now returns a single felt, not a tuple anymore (tuple is returned for cairo < 0.10)
+    let x_ = sqrt(x);  // notice: sqrt() now returns a single felt, not a tuple anymore (tuple is returned for cairo < 0.10)
     let y = x_ * SCALE_FP_SQRT;  // compensate for the square root
     return y;
 }
 
+// Multiplies fixed point quantity "a" by fixed point quantity "b", with range check
 func mul_fp{range_check_ptr}(a: felt, b: felt) -> felt {
     // signed_div_rem by SCALE_FP after multiplication
     tempvar product = a * b;
@@ -21,6 +22,7 @@ func mul_fp{range_check_ptr}(a: felt, b: felt) -> felt {
     return c;
 }
 
+// Divides fixed point quantity "a" by fixed point quantity "b", with range check
 func div_fp{range_check_ptr}(a: felt, b: felt) -> felt {
     // multiply by SCALE_FP before signed_div_rem
     tempvar a_scaled = a * SCALE_FP;
@@ -28,16 +30,20 @@ func div_fp{range_check_ptr}(a: felt, b: felt) -> felt {
     return c;
 }
 
-// func mul_fp_ul{range_check_ptr}(a: felt, b_ul: felt) -> felt {
-//     let c = a * b_ul;
-//     return c;
-// }
+// Multiplies fixed point quantity "a" by non-fixed point quantity "b_ul"
+// not used yet
+func mul_fp_ul{range_check_ptr}(a: felt, b_ul: felt) -> felt {
+    let c = a * b_ul;
+    return c;
+}
 
+// Divides fixed point quantity "a" by non-fixed point quantity "b_ul", with range check
 func div_fp_ul{range_check_ptr}(a: felt, b_ul: felt) -> felt {
     let (c, _) = signed_div_rem(a, b_ul, RANGE_CHECK_BOUND);
     return c;
 }
 
+// Finds distance between fixed point coordinate values (x0, y0) and (x, y)
 func distance_two_points{range_check_ptr}(x0: felt, y0: felt, x: felt, y: felt) -> felt {
     let x_diff = x - x0;
     let y_diff = y - y0;
@@ -48,13 +54,11 @@ func distance_two_points{range_check_ptr}(x0: felt, y0: felt, x: felt, y: felt) 
     return r;
 }
 
+// Shifts fixed point theta value in radians to an equivalent value
+// within range -pi <= theta_shifted <= +pi
 @view
 func theta_shifter{range_check_ptr}(theta: felt) -> (value: felt) {
     alloc_locals;
-
-    //
-    // shifts theta so it is in range -pi <= theta <= +pi
-    //
 
     local range_check_ptr = range_check_ptr;
     local theta_abs = abs_value(theta);
@@ -66,7 +70,6 @@ func theta_shifter{range_check_ptr}(theta: felt) -> (value: felt) {
         // # of cycles to shift theta by = 1 + ((theta_abs - pi)/(2*pi)) // 1
         //
         let diff = theta_abs - PI;
-        // should I use unsigned_div_rem here bc I know it's > 0??????????????????????????????
         let (cycles_minus_one, _) = signed_div_rem(diff, TWO_PI, RANGE_CHECK_BOUND);
         let cycles = 1 + cycles_minus_one;
         let shift = cycles * TWO_PI;
@@ -88,13 +91,14 @@ func theta_shifter{range_check_ptr}(theta: felt) -> (value: felt) {
     return (value=theta_shifted);
 }
 
+// Approximates cosine(theta) using 5 terms (to 8th order) of Taylor series
 @view
 func cosine_8th{range_check_ptr}(theta: felt) -> (value: felt) {
-
     //
     // cos(theta) ~= 1 - theta^2/2! + theta^4/4! - theta^6/6! + theta^8/8!
     //
-
+    // This approximation works well only if theta is within range of -pi to pi
+    // Shift theta as needed to equivalent angle -pi <= theta_shifted <= +pi
     let (theta_shifted) = theta_shifter(theta);
 
     let theta_2 = mul_fp(theta_shifted, theta_shifted);
@@ -107,7 +111,7 @@ func cosine_8th{range_check_ptr}(theta: felt) -> (value: felt) {
     let theta_6_div720 = div_fp_ul(theta_6, 720);
     let theta_8_div40320 = div_fp_ul(theta_8, 40320);
 
-    let value = 1*SCALE_FP - theta_2_div2 + theta_4_div24 - theta_6_div720 + theta_8_div40320;
+    let value = 1 * SCALE_FP - theta_2_div2 + theta_4_div24 - theta_6_div720 + theta_8_div40320;
 
     return (value=value);
 }

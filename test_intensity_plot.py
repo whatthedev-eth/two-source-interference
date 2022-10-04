@@ -4,9 +4,10 @@ import os
 from starkware.starknet.testing.starknet import Starknet
 import asyncio
 import numpy as np
+import json
 
-# Constants from constants.cairo contract
 #
+# Constants from constants.cairo contract
 #
 # Fixed point math constants
 SCALE_FP = 10**20
@@ -19,6 +20,18 @@ HALF_PRIME = (
     1809251394333065606848661391547535052811553607665798349986546028067936010240
 )
 
+
+#
+# Input parameters
+#
+# number of points to plot along each axis
+num_pts = 25
+# frequency
+f = int(509 * SCALE_FP / 1000)
+# source separation
+d = int(3 * SCALE_FP)
+
+
 #
 # Math constants
 #
@@ -28,6 +41,64 @@ PI = TWO_PI / 2
 # Non fixed point values
 TWO_PI_no_fp = TWO_PI / SCALE_FP
 PI_no_fp = PI / SCALE_FP
+
+
+#
+# Physical parameters
+#
+# wave speed
+v = 3 * SCALE_FP / 10
+# phase shifts of sources
+phi_1 = 0 * SCALE_FP
+phi_2 = 0 * SCALE_FP
+# decay exponent (power of r to show wave dissipation)
+# for spherical wave: (ideal decay ->) -1 <= decay_exp <= 0 (<- no decay)
+# but -1 is too strong for graphic display
+decay_exp = 0
+# number of terms in cosine approximation
+n = 5
+# time; consider only t=0 for now
+t = 0.0 * SCALE_FP
+
+
+#
+# Calculated wave parameters
+#
+# angular frequency
+omega = 2 * (PI / SCALE_FP) * f
+# wave number
+k = (omega / v) * SCALE_FP
+
+
+#
+# Plot parameters
+#
+# min and max values for axes
+x_min = 0 * SCALE_FP
+x_max = 10 * SCALE_FP
+y_min = -5 * SCALE_FP
+y_max = 5 * SCALE_FP
+
+# np.linspace(min, max, num) returns num evenly spaced numbers over interval min,max
+# creates row array
+x_s = np.linspace(x_min, x_max, num_pts)
+# creates column array if '.reshape(-1,1)'
+y_s = np.linspace(y_min, y_max, num_pts).reshape(-1, 1)
+# need to create empty arrays to use in nested loop below
+wave_1_fn_s = np.empty((num_pts, num_pts))
+wave_2_fn_s = np.empty((num_pts, num_pts))
+
+# Source positions
+x0_1 = 0.0
+y0_1 = d / 2.0
+x0_2 = 0.0
+y0_2 = -d / 2.0
+
+
+# dicts for wave parameters
+common = {"omega": omega / SCALE_FP, "k": k / SCALE_FP, "decay_exp": decay_exp, "n": n}
+wave_1 = {"x0": x0_1 / SCALE_FP, "y0": y0_1 / SCALE_FP, "phi": phi_1 / SCALE_FP}
+wave_2 = {"x0": x0_2 / SCALE_FP, "y0": y0_2 / SCALE_FP, "phi": phi_2 / SCALE_FP}
 
 
 #
@@ -62,18 +133,18 @@ def theta_shifter(theta):
 
 def cosine_n_terms(theta, n):
     # n = number of terms (not order)
-    # 2n = order
+    # 2(n-1) = order
     # cosine(theta) ~= ((-1)^n)*(theta^(2n))/(2n)!
     #               ~= 1 - theta^2/2! + theta^4/4! - theta^6/6! + ...
-    cos_nth = 0
+    cos_n_terms = 0
     # must have -pi <= theta <= +pi for cosine approx., so shift theta as needed
     theta_shifted = theta_shifter(theta)
     for i in range(n):
         power_neg_one = (-1) ** i
         power_theta = theta_shifted ** (2 * i)
         fact = np.math.factorial(2 * i)
-        cos_nth += power_neg_one * power_theta / fact
-    return cos_nth
+        cos_n_terms += power_neg_one * power_theta / fact
+    return cos_n_terms
 
 
 def wave_function(t, x, y, params, wave):
@@ -98,74 +169,6 @@ def wave_function(t, x, y, params, wave):
     # decayed_wave_fn = wave_fn * r**decay_exp
     # return decayed_wave_fn
     return wave_fn
-
-
-#
-# Physical parameters
-#
-# wave speed
-v = 3 * SCALE_FP / 10
-# phase shifts of sources
-phi_1 = 0 * SCALE_FP
-phi_2 = 0 * SCALE_FP
-# decay exponent (power of r to show wave dissipation)
-# for spherical wave: (ideal decay ->) -1 <= decay_exp <= 0 (<- no decay)
-# but -1 is too strong for graphic display
-decay_exp = 0
-# number of terms in cosine approximation
-n = 5
-# time; consider only t=0 for now
-t = 0.0 * SCALE_FP
-
-
-#
-# Input parameters
-#
-# number of points to plot along each axis
-num_pts = 25
-# frequency
-f = int(509 * SCALE_FP / 1000)
-# source separation
-d = int(2 * SCALE_FP)
-
-
-#
-# Wave parameters
-#
-# angular frequency
-omega = 2 * (PI / SCALE_FP) * f
-# wave number
-k = (omega / v) * SCALE_FP
-
-#
-# Plot parameters
-#
-# min and max values for axes
-x_min = 0 * SCALE_FP
-x_max = 10 * SCALE_FP
-y_min = -5 * SCALE_FP
-y_max = 5 * SCALE_FP
-
-# np.linspace(min, max, num) returns num evenly spaced numbers over interval min,max
-# creates row array
-x_s = np.linspace(x_min, x_max, num_pts)
-# creates column array if '.reshape(-1,1)'
-y_s = np.linspace(y_min, y_max, num_pts).reshape(-1, 1)
-# need to create empty arrays to use in nested loop below
-wave_1_fn_s = np.empty((num_pts, num_pts))
-wave_2_fn_s = np.empty((num_pts, num_pts))
-
-
-# Source positions
-x0_1 = 0.0
-y0_1 = d / 2.0
-x0_2 = 0.0
-y0_2 = -y0_1
-
-# dicts for wave parameters
-common = {"omega": omega / SCALE_FP, "k": k / SCALE_FP, "decay_exp": decay_exp, "n": n}
-wave_1 = {"x0": x0_1 / SCALE_FP, "y0": y0_1 / SCALE_FP, "phi": phi_1 / SCALE_FP}
-wave_2 = {"x0": x0_2 / SCALE_FP, "y0": y0_2 / SCALE_FP, "phi": phi_2 / SCALE_FP}
 
 
 def intensity_plot_arr(num_pts, f, d):
@@ -199,10 +202,14 @@ async def test():
     contract = await starknet.deploy(
         source=CONTRACT_FILE,
     )
-    print()  # grab a newline here
+    print()  # print blank line
 
     # Cairo intensity array
     ret = await contract.intensity_plot_arr(num_pts=num_pts, f=f, d=d).call()
+    # dump to json file
+    with open("test_intensity_plot.json", "w") as outfile:
+        json.dump(ret.result, outfile)
+
     # Python intensity array
     intensity_s = intensity_plot_arr(num_pts=num_pts, f=f / SCALE_FP, d=d / SCALE_FP)
 
@@ -211,17 +218,14 @@ async def test():
     print(f"> intensity_plot_arr from cairo     member")
     print(f"> intensity_s_arr from python")
 
-    # print array members one line at a time
-
-    indexer = 0
+    # Print array members one line at a time:
+    # Cairo calculation above Python calculation, with array member # to the right
     for p in range(0, num_pts):
         for q in range(0, num_pts):
             print()
 
-            intensity_cairo = ret.result[0][q + indexer]
-            print(f"> {intensity_cairo}                 {q + indexer}")
+            intensity_cairo = ret.result[0][q + p * num_pts]
+            print(f"> {intensity_cairo}                 {q + p * num_pts}")
 
             intensity_py = int(intensity_s[q, p] * SCALE_FP)
             print(f"> {intensity_py}")
-
-        indexer += num_pts
