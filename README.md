@@ -2,7 +2,7 @@
 
 A.k.a. "Makin' Waves in Cairo!"
 
-We simulate the interference pattern produced by two wave sources with identical frequencies. A "top-view" 2-D intensity map is created to show the wave interference pattern inside a square grid.   
+The interference pattern produced by two wave sources with identical frequencies is simulated. A "top-view" 2-D intensity map is created to show the wave interference pattern inside a square grid.   
 
 
 ## User Inputs
@@ -73,7 +73,7 @@ Only these inputs for now:
 - Note:
     - `n` = 5 is used to include 5 terms (to 8th order) in Python cosine approximation, to match approximation in `cosine_8th` function in **math.cairo**
     - `num_tests` = an odd number of tests to run
-    - Values of `theta` to test are incremented by `PI`/4 in this range:
+    - Values of `theta` to test are incremented by pi/4 in this range:
 
         *-(pi/4)(num_tests-1)/2 <= `theta` <= +(pi/4)(num_tests-1)/2*
 
