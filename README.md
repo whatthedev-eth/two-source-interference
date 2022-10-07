@@ -51,9 +51,9 @@ Only these inputs for now:
 ## Tests
 
 **test_intensity_plot.py**
-- Contains *input parameters* which are fed into both Cairo and Python calculations
+- Contains input parameters which are fed into both Cairo and Python calculations
 - Contains other constants and parameters (that should match those in **constants.cairo**) for Python calculations 
-- Contains Python calculations if intensity array, to compare to Cairo calculations done by calling `intensity_plot_arr` function from **intensity_plot.cairo** using *input parameters*
+- Contains Python calculations of intensity array, to compare to Cairo calculations done by calling `intensity_plot_arr` function from **intensity_plot.cairo** using same input parameters
 - Dumps `intensity_plot_arr` return to **test_intensity_plot.json** to be used by Jupyter notebook
 - Prints for comparison the values (as FP) from the intensity arrays found with Cairo and Python
 - To run: `pytest -s test_intensity_plot.py`
