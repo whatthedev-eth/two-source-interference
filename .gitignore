@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Other folders not for github
+_not_gh_tests
+_not_gh_contracts

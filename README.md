@@ -56,12 +56,14 @@ Only these inputs for now:
 - Contains Python calculations if intensity array, to compare to Cairo calculations done by calling `intensity_plot_arr` function from **intensity_plot.cairo** using *input parameters*
 - Dumps `intensity_plot_arr` return to **test_intensity_plot.json** to be used by Jupyter notebook
 - Prints for comparison the values (as FP) from the intensity arrays found with Cairo and Python
-- To run: `pytest -s test_intensity_plot.py`
+- To run: `pytest -s tests/test_intensity_plot.py`
 
 
 **test_intensity_plot.ipynb**
-- Jupyter notebook which plots `intensity_s` array calculated by **intensity_plot.cairo**
-- Gets data from .json file created in **test_intensity_plot.py** using calculations from **intensity_plot.cairo**
+- Jupyter notebook which plots two intensity arrays:
+    - Array calculated in Cairo by **intensity_plot.cairo**
+    - Array calculated in Python by **test_intensity_plot.py**
+- Gets data from .json files created in **test_intensity_plot.py**
 - To run:
     - Install [Jupyter Notebook](https://jupyter.org/install)
     - `jupyter notebook`, follow instructions to open notebook in browser
@@ -77,4 +79,4 @@ Only these inputs for now:
 
         *-(pi/4)(num_tests-1)/2 <= `theta` <= +(pi/4)(num_tests-1)/2*
 
-- To run: `pytest -s test_math.py`
+- To run: `pytest -s tests/test_math.py`

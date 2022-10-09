@@ -207,11 +207,14 @@ async def test():
     # Cairo intensity array
     ret = await contract.intensity_plot_arr(num_pts=num_pts, f=f, d=d).call()
     # dump to json file
-    with open("test_intensity_plot.json", "w") as outfile:
+    with open("tests/test_intensity_plot_cairo.json", "w") as outfile:
         json.dump(ret.result, outfile)
 
     # Python intensity array
     intensity_s = intensity_plot_arr(num_pts=num_pts, f=f / SCALE_FP, d=d / SCALE_FP)
+    # dump to a different json file
+    with open("tests/test_intensity_plot_python.json", "w") as outfile:
+        json.dump(intensity_s.tolist(), outfile)
 
     print(f"> intensities for num_pts={num_pts}, f={f}, d={d}) returns:")
     print()
@@ -229,3 +232,7 @@ async def test():
 
             intensity_py = int(intensity_s[q, p] * SCALE_FP)
             print(f"> {intensity_py}")
+
+    # print ret.call_info.execution_resources to get n_steps
+    print()
+    print(ret.call_info.execution_resources)

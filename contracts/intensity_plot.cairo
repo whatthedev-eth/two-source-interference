@@ -28,12 +28,9 @@ func intensity_s_filler_inner_loop{range_check_ptr}(
     intensity_s_filler_inner_loop(t, intensity_s + 1, x_s, y_s + 1, num_pts_y - 1, waves);
 
     // After first return from recursive calls
-    // calculate both wave functions at time t and coordinates (x, y)
-    tempvar y = y_s[0];
-    tempvar x = x_s[0];
-
-    let wave_fn_1 = wave_function(t, x, y, waves.common, waves.wave_1);
-    let wave_fn_2 = wave_function(t, x, y, waves.common, waves.wave_2);
+    // calculate both wave functions at time t and coordinates (x_s[0], y_s[0])
+    let wave_fn_1 = wave_function(t, x_s[0], y_s[0], waves.common, waves.wave_1);
+    let wave_fn_2 = wave_function(t, x_s[0], y_s[0], waves.common, waves.wave_2);
 
     // Add wave functions, find intensity, 
     // and fill member of intensity_s array corresponding to (x, y)
@@ -113,7 +110,7 @@ func intensity_plot_arr{range_check_ptr}(num_pts: felt, f: felt, d: felt) -> (
 
     // Source positions
     let x0_1 = 0;
-    let y0_1 = d / 2;
+    let y0_1 = div_fp_ul(d, 2);
     let x0_2 = 0;
     let y0_2 = -y0_1;
 
