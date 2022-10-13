@@ -85,9 +85,9 @@ func coordinate_s_filler{}(c_s: felt*, c_min: felt, delta_c: felt, num_pts: felt
 }
 
 //
-//  External function for input of num_pts, f, and d; then create intensity plot data
+//  View function for input of num_pts, f, and d; then create intensity plot data
 //
-@external
+@view
 func intensity_plot_arr{range_check_ptr}(num_pts: felt, f: felt, d: felt) -> (
     intensity_s_len: felt, intensity_s: felt*
 ) {

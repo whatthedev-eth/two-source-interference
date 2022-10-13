@@ -22,7 +22,7 @@ Only these inputs for now:
 ## Cairo files
 
 **intensity_plot.cairo** contains:
-- `intensity_plot_arr`- The external function which accepts user inputs and initiates all calculations
+- `intensity_plot_arr`- The view function which accepts user inputs and initiates all calculations
 - Other functions to calculate x coordinates, y coordinates, intensities at each position (x, y), and fill arrays for each of these
 
 **wave_physics.cairo** contains functions for wave physics calculations of: 
