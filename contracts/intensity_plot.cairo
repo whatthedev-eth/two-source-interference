@@ -3,7 +3,7 @@
 from starkware.cairo.common.alloc import alloc
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 
-from contracts.constants import TWO_PI, v, phi_1, phi_2, decay_exp, x_min, x_max, y_min, y_max
+from contracts.constants import SCALE_FP, TWO_PI, v, phi_1, phi_2, decay_exp, x_min, x_max, y_min, y_max
 from contracts.math import mul_fp, div_fp, div_fp_ul
 from contracts.structs import Common_params, Indiv_params, Two_waves_params
 from contracts.wave_physics import intensity, wave_sum, wave_function
@@ -85,13 +85,17 @@ func coordinate_s_filler{}(c_s: felt*, c_min: felt, delta_c: felt, num_pts: felt
 }
 
 //
-//  View function for input of num_pts, f, and d; then create intensity plot data
+//  View function for input of num_pts, lambda, and d; then create intensity plot data
 //
 @view
-func intensity_plot_arr{range_check_ptr}(num_pts: felt, f: felt, d: felt) -> (
+func intensity_plot_arr{range_check_ptr}(num_pts: felt, lambda: felt, d: felt) -> (
     intensity_s_len: felt, intensity_s: felt*
 ) {
     alloc_locals;
+
+    // Scale up inputs lambda and d to be fixed point values
+    local lambda_fp = lambda * SCALE_FP / 100;
+    local d_fp = d * SCALE_FP / 100;
 
     // Allocate memory segments arrays
     let (x_s: felt*) = alloc();
@@ -110,17 +114,18 @@ func intensity_plot_arr{range_check_ptr}(num_pts: felt, f: felt, d: felt) -> (
 
     // Source positions
     let x0_1 = 0;
-    let y0_1 = div_fp_ul(d, 2);
+    let y0_1 = div_fp_ul(d_fp, 2);
     let x0_2 = 0;
     let y0_2 = -y0_1;
 
     // Wave parameters needed for plot
     // time (for now, consider only t = 0)
     local t = 0;
-    // angular frequency
-    local omega = mul_fp(TWO_PI, f);
     // wave number
-    local k = div_fp(omega, v);
+    local k = div_fp(TWO_PI, lambda_fp);
+    // angular frequency
+    local omega = mul_fp(v, k);
+
 
     // Struct for waves' common physical parameters
     let common = Common_params(omega=omega, k=k, decay_exp=decay_exp);

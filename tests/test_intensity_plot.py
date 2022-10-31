@@ -26,31 +26,33 @@ HALF_PRIME = (
 #
 # number of points to plot along each axis
 num_pts = 25
-# frequency
-f = int(509 * SCALE_FP / 1000)
-# source separation
-d = int(3 * SCALE_FP)
-
+# wavelength (cannot use `lambda` in python) scaled up by 100 for Cairo input
+lambda1 = 150
+# source separation scaled up by 100 for Cairo input
+d = 500
+# scale up lambda1 and d to simulate what happens in Cairo code
+lambda_fp = int(lambda1 * SCALE_FP / 100)
+d_fp = int(d * SCALE_FP / 100)
 
 #
 # Math constants
 #
 # Fixed point values
-TWO_PI = 6283185 * SCALE_FP / 1000000
-PI = TWO_PI / 2
+TWO_PI_fp = 6283185 * SCALE_FP / 1000000
+PI_fp = TWO_PI_fp / 2
 # Non fixed point values
-TWO_PI_no_fp = TWO_PI / SCALE_FP
-PI_no_fp = PI / SCALE_FP
+TWO_PI = TWO_PI_fp / SCALE_FP
+PI = PI_fp / SCALE_FP
 
 
 #
 # Physical parameters
 #
 # wave speed
-v = 3 * SCALE_FP / 10
+v_fp = 3 * SCALE_FP / 10
 # phase shifts of sources
-phi_1 = 0 * SCALE_FP
-phi_2 = 0 * SCALE_FP
+phi_1_fp = 0 * SCALE_FP
+phi_2_fp = 0 * SCALE_FP
 # decay exponent (power of r to show wave dissipation)
 # for spherical wave: (ideal decay ->) -1 <= decay_exp <= 0 (<- no decay)
 # but -1 is too strong for graphic display
@@ -58,47 +60,60 @@ decay_exp = 0
 # number of terms in cosine approximation
 n = 5
 # time; consider only t=0 for now
-t = 0.0 * SCALE_FP
+t_fp = 0.0 * SCALE_FP
 
 
 #
 # Calculated wave parameters
 #
-# angular frequency
-omega = 2 * (PI / SCALE_FP) * f
 # wave number
-k = (omega / v) * SCALE_FP
+k_fp = (TWO_PI_fp / lambda_fp) * SCALE_FP
+# angular frequency
+omega_fp = (v_fp / SCALE_FP) * lambda_fp
 
 
 #
 # Plot parameters
 #
 # min and max values for axes
-x_min = 0 * SCALE_FP
-x_max = 10 * SCALE_FP
-y_min = -5 * SCALE_FP
-y_max = 5 * SCALE_FP
+x_min_fp = 0 * SCALE_FP
+x_max_fp = 10 * SCALE_FP
+y_min_fp = -5 * SCALE_FP
+y_max_fp = 5 * SCALE_FP
 
 # np.linspace(min, max, num) returns num evenly spaced numbers over interval min,max
 # creates row array
-x_s = np.linspace(x_min, x_max, num_pts)
+x_s_fp = np.linspace(x_min_fp, x_max_fp, num_pts)
 # creates column array if '.reshape(-1,1)'
-y_s = np.linspace(y_min, y_max, num_pts).reshape(-1, 1)
+y_s_fp = np.linspace(y_min_fp, y_max_fp, num_pts).reshape(-1, 1)
 # need to create empty arrays to use in nested loop below
 wave_1_fn_s = np.empty((num_pts, num_pts))
 wave_2_fn_s = np.empty((num_pts, num_pts))
 
 # Source positions
-x0_1 = 0.0
-y0_1 = d / 2.0
-x0_2 = 0.0
-y0_2 = -d / 2.0
+x0_1_fp = 0.0
+y0_1_fp = d_fp / 2.0
+x0_2_fp = 0.0
+y0_2_fp = -d_fp / 2.0
 
 
 # dicts for wave parameters
-common = {"omega": omega / SCALE_FP, "k": k / SCALE_FP, "decay_exp": decay_exp, "n": n}
-wave_1 = {"x0": x0_1 / SCALE_FP, "y0": y0_1 / SCALE_FP, "phi": phi_1 / SCALE_FP}
-wave_2 = {"x0": x0_2 / SCALE_FP, "y0": y0_2 / SCALE_FP, "phi": phi_2 / SCALE_FP}
+common = {
+    "omega": omega_fp / SCALE_FP,
+    "k": k_fp / SCALE_FP,
+    "decay_exp": decay_exp,
+    "n": n,
+}
+wave_1 = {
+    "x0": x0_1_fp / SCALE_FP,
+    "y0": y0_1_fp / SCALE_FP,
+    "phi": phi_1_fp / SCALE_FP,
+}
+wave_2 = {
+    "x0": x0_2_fp / SCALE_FP,
+    "y0": y0_2_fp / SCALE_FP,
+    "phi": phi_2_fp / SCALE_FP,
+}
 
 
 #
@@ -119,9 +134,9 @@ def theta_shifter(theta):
     # shifts theta so it is in range -pi <= theta <= +pi
     # using PI_no_fp instead of np.pi to match cairo file
     theta_abs = abs(theta)
-    if theta_abs >= PI_no_fp:
-        cycles_to_shift = 1 + ((theta_abs - PI_no_fp) / (TWO_PI_no_fp)) // 1
-        theta_abs_shifted = theta_abs - (TWO_PI_no_fp * cycles_to_shift)
+    if theta_abs >= PI:
+        cycles_to_shift = 1 + ((theta_abs - PI) / TWO_PI) // 1
+        theta_abs_shifted = theta_abs - (TWO_PI * cycles_to_shift)
         if theta >= 0:
             theta_shifted = theta_abs_shifted
         else:
@@ -171,14 +186,14 @@ def wave_function(t, x, y, params, wave):
     return wave_fn
 
 
-def intensity_plot_arr(num_pts, f, d):
-    # wave function arrays filled w/loops because cannot use ">" w arrays in functions
+def intensity_plot_arr(num_pts, lambda1, d):
+    # wave function arrays filled via loops because cannot use ">" w arrays in functions
     for p in range(0, num_pts):
-        x = x_s[p] / SCALE_FP
+        x = x_s_fp[p] / SCALE_FP
         for q in range(0, num_pts):
-            y = y_s[q] / SCALE_FP
-            wave_1_fn_s[q, p] = wave_function(t / SCALE_FP, x, y, common, wave_1)
-            wave_2_fn_s[q, p] = wave_function(t / SCALE_FP, x, y, common, wave_2)
+            y = y_s_fp[q] / SCALE_FP
+            wave_1_fn_s[q, p] = wave_function(t_fp / SCALE_FP, x, y, common, wave_1)
+            wave_2_fn_s[q, p] = wave_function(t_fp / SCALE_FP, x, y, common, wave_2)
             # Entire arrays filled by single calls
             # total wave function array due to superposition
             wave_fn_s = wave_sum(wave_1_fn_s, wave_2_fn_s)
@@ -204,19 +219,19 @@ async def test():
     )
     print()  # print blank line
 
-    # Cairo intensity array
-    ret = await contract.intensity_plot_arr(num_pts=num_pts, f=f, d=d).call()
+    # Cairo intensity array (input lambda, d that were already scaled up by 100)
+    ret = await contract.intensity_plot_arr(num_pts, lambda1, d).call()
     # dump to json file
     with open("tests/test_intensity_plot_cairo.json", "w") as outfile:
         json.dump(ret.result, outfile)
 
-    # Python intensity array
-    intensity_s = intensity_plot_arr(num_pts=num_pts, f=f / SCALE_FP, d=d / SCALE_FP)
+    # Python intensity array (input unscaled lambda, d)
+    intensity_s = intensity_plot_arr(num_pts, lambda_fp / SCALE_FP, d_fp / SCALE_FP)
     # dump to a different json file
     with open("tests/test_intensity_plot_python.json", "w") as outfile:
         json.dump(intensity_s.tolist(), outfile)
 
-    print(f"> intensities for num_pts={num_pts}, f={f}, d={d}) returns:")
+    print(f"> intensities for num_pts={num_pts}, lambda={lambda1}, d={d}) returns:")
     print()
     print(f"> intensity_plot_arr from cairo     member")
     print(f"> intensity_s_arr from python")

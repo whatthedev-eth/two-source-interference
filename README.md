@@ -2,22 +2,22 @@
 
 A.k.a. "Makin' Waves in Cairo!"
 
-The interference pattern produced by two wave sources with identical frequencies is simulated. A "top-view" 2-D intensity map is created to show the wave interference pattern inside a square grid.   
+The interference pattern produced by two wave sources with identical wavelengths is simulated. A "top-view" 2-D intensity map is created to show the wave interference pattern inside a square plot of side length 10 (arbitrary units).   
 
 
 ## User Inputs
 
-Only these inputs for now:
+Only these *integer* inputs for now:
 - `num_pts` = Number of points along each axis of the square grid
-    - Currently `num_pts` must be <= 25
-- `f`* = Frequency of sources
-    - For example: 509 * 10**17 (FP value equivalent to 0.509) 
-- `d`* = Distance between sources 
-    - For example: 5 * 10**20 (FP value equivalent to 5)
-    - Currently `d` must be <= 10 * 10**20 (FP value equivalent to 10)
+    - Input range: 2 <= `num_pts` <= 25
+- `lambda` = Wavelength of sources
+    - Input range: 1 <= `lambda` <= 1000*
+- `d` = Distance between sources
+    - Input range: 0 <= `num_pts` <= 1000*
 
-    *These are FP (fixed point) values where FP scale is `SCALE_FP` = 10**20.
-
+        *Max value of 1000 = side length of square plot, scaled up by 100
+        - Allows input precision to hundredths place
+        - After input, both `lambda` and `d` are scaled up even more to be FP (fixed point) values where FP scale is `SCALE_FP` = 10**20.
 
 ## Cairo files
 
@@ -74,9 +74,7 @@ Only these inputs for now:
 - Compares Python calculations to those found by calling `theta_shifter` and `cosine_8th` functions from **math.cairo**
 - Note:
     - `n` = 5 is used to include 5 terms (to 8th order) in Python cosine approximation, to match approximation in `cosine_8th` function in **math.cairo**
-    - `num_tests` = an odd number of tests to run
-    - Values of `theta` to test are incremented by pi/4 in this range:
-
+    - `num_tests` = an odd integer number of tests to run
+    - Values of `theta` to test are incremented by pi/4 in range:
         *-(pi/4)(num_tests-1)/2 <= `theta` <= +(pi/4)(num_tests-1)/2*
-
 - To run: `pytest -s tests/test_math.py`

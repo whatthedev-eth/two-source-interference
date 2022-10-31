@@ -7,7 +7,7 @@
                     "type": "felt"
                 },
                 {
-                    "name": "f",
+                    "name": "lambda",
                     "type": "felt"
                 },
                 {
@@ -34,7 +34,7 @@
         "CONSTRUCTOR": [],
         "EXTERNAL": [
             {
-                "offset": "0x25c",
+                "offset": "0x260",
                 "selector": "0x3e6c36efc5a50cbf11d723a68703949377906dcc494d6f1ad9edfcd782627bd"
             }
         ],
@@ -543,77 +543,81 @@
             "0x400380007ffa7ffb",
             "0x208b7fff7fff7ffe",
             "0x40780017fff7fff",
-            "0x8",
+            "0xa",
+            "0x404780017ffc8000",
+            "0xde0b6b3a7640000",
+            "0x404780017ffd8001",
+            "0xde0b6b3a7640000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffe10",
-            "0x40137fff7fff8000",
-            "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffe0d",
-            "0x40137fff7fff8001",
-            "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffe0a",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffe0c",
             "0x40137fff7fff8002",
+            "0x1104800180018000",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffe09",
+            "0x40137fff7fff8003",
+            "0x1104800180018000",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffe06",
+            "0x40137fff7fff8004",
             "0x480a7ffa7fff8000",
             "0x480680017fff8000",
             "0x3635c9adc5dea00000",
             "0x482680017ffb8000",
             "0x800000000000011000000000000000000000000000000000000000000000000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffedf",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffedb",
             "0x48127ffe7fff8000",
             "0x480680017fff8000",
             "0x3635c9adc5dea00000",
             "0x482680017ffb8000",
             "0x800000000000011000000000000000000000000000000000000000000000000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffed8",
-            "0x40137fff7fff8003",
-            "0x40137ffe7fff8004",
-            "0x480a80007fff8000",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffed4",
+            "0x40137fff7fff8005",
+            "0x40137ffe7fff8006",
+            "0x480a80027fff8000",
             "0x480680017fff8000",
             "0x0",
             "0x48127fd27fff8000",
             "0x480a7ffb7fff8000",
             "0x1104800180018000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffd4",
-            "0x480a80017fff8000",
+            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffd0",
+            "0x480a80037fff8000",
             "0x480680017fff8000",
             "0x800000000000010ffffffffffffffffffffffffffffffe4e51b291d10b00001",
-            "0x480a80037fff8000",
+            "0x480a80057fff8000",
             "0x480a7ffb7fff8000",
             "0x1104800180018000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffcd",
-            "0x480a80047fff8000",
-            "0x480a7ffd7fff8000",
+            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffc9",
+            "0x480a80067fff8000",
+            "0x480a80017fff8000",
             "0x480680017fff8000",
             "0x2",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffec2",
-            "0x400780017fff8005",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffebe",
+            "0x400780017fff8007",
             "0x0",
             "0x48127ffe7fff8000",
             "0x480680017fff8000",
             "0x220fabbac6a2464000",
-            "0x480a7ffc7fff8000",
+            "0x480a80007fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffea2",
-            "0x40137fff7fff8006",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffeaa",
+            "0x40137fff7fff8008",
             "0x48127ffe7fff8000",
-            "0x480a80067fff8000",
             "0x480680017fff8000",
             "0x1a055690d9db80000",
+            "0x480a80087fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffea7",
-            "0x40137fff7fff8007",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffe97",
+            "0x40137fff7fff8009",
             "0x48127ffe7fff8000",
-            "0x480a80057fff8000",
-            "0x480a80027fff8000",
-            "0x480a80007fff8000",
-            "0x480a80017fff8000",
-            "0x480a7ffb7fff8000",
-            "0x480a7ffb7fff8000",
-            "0x480a80067fff8000",
             "0x480a80077fff8000",
+            "0x480a80047fff8000",
+            "0x480a80027fff8000",
+            "0x480a80037fff8000",
+            "0x480a7ffb7fff8000",
+            "0x480a7ffb7fff8000",
+            "0x480a80097fff8000",
+            "0x480a80087fff8000",
             "0x480680017fff8000",
             "0x0",
             "0x480680017fff8000",
@@ -628,9 +632,9 @@
             "0x480680017fff8000",
             "0x0",
             "0x1104800180018000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffff74",
+            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffff70",
             "0x484a7ffb7ffb8000",
-            "0x480a80027fff8000",
+            "0x480a80047fff8000",
             "0x208b7fff7fff7ffe",
             "0x40780017fff7fff",
             "0x3",
@@ -646,7 +650,7 @@
             "0x480a7ffc7fff8000",
             "0x480a7ffb7fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffdae",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffdaa",
             "0x480a80017fff8000",
             "0x4829800080008002",
             "0x480a80007fff8000",
@@ -661,7 +665,7 @@
             "0x480280017ffd8000",
             "0x480280027ffd8000",
             "0x1104800180018000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffff8b",
+            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffff87",
             "0x48127ffd7fff8000",
             "0x1104800180018000",
             "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffe2",
@@ -678,13 +682,13 @@
                 "autogen/starknet/arg_processor/aa1fa80ae3e74a1fd410f5cfbd65894291b2bbb3f50834e80ada3775217058df.cairo": "let __calldata_arg_d = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/c105b8dd15fec4ffeeadfd6dc7f5e9f955112baf0f960e72ec090cfce6c96c3f.cairo": "// Check that the length is non-negative.\nassert [range_check_ptr] = ret_value.intensity_s_len;\n// Store the updated range_check_ptr as a local variable to keep it available after\n// the memcpy.\nlocal range_check_ptr = range_check_ptr + 1;\n// Keep a reference to __return_value_ptr.\nlet __return_value_ptr_copy = __return_value_ptr;\n// Store the updated __return_value_ptr as a local variable to keep it available after\n// the memcpy.\nlocal __return_value_ptr: felt* = __return_value_ptr + ret_value.intensity_s_len * 1;\nmemcpy(\n    dst=__return_value_ptr_copy,\n    src=ret_value.intensity_s,\n    len=ret_value.intensity_s_len * 1);\n",
                 "autogen/starknet/arg_processor/c31620b02d4d706f0542c989b2aadc01b0981d1f6a5933a8fe4937ace3d70d92.cairo": "let __calldata_actual_size =  __calldata_ptr - cast([cast(fp + (-3), felt**)], felt*);\n",
-                "autogen/starknet/arg_processor/ccde42d4b555747103b2c76fb464ce76af1ce861002f0626bf7c431987b41955.cairo": "let __calldata_arg_f = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
+                "autogen/starknet/arg_processor/f2f8d91a8ee9aa992c120117675a2f54960f64bbb408cb5f1de30e3cd80a72a4.cairo": "let __calldata_arg_lambda = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/f46f114cc4d8fd9014fb47439f85f8da3563c025a19e5ac96c355f64fbbbf76e.cairo": "let __calldata_arg_num_pts = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/external/intensity_plot_arr/3f2c77ab4e9866f148094b3f3c2497496b7ce8700b8370e7f1bc10658a33d640.cairo": "let syscall_ptr = [cast([cast(fp + (-5), felt**)] + 0, felt*)];\n",
-                "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo": "let ret_value = __wrapped_func{range_check_ptr=range_check_ptr}(num_pts=__calldata_arg_num_pts, f=__calldata_arg_f, d=__calldata_arg_d,);\nlet (range_check_ptr, retdata_size, retdata) = intensity_plot_arr_encode_return(ret_value, range_check_ptr);\n",
                 "autogen/starknet/external/intensity_plot_arr/93099bea078b47105ec080392b498d5fa602cf51e6076f4584216f16f5b4c273.cairo": "return (syscall_ptr,range_check_ptr,retdata_size,retdata);\n",
                 "autogen/starknet/external/intensity_plot_arr/f5089ec55bd991a6f6c905eefd5cc12d00edb7d07dbefeea239db24465b264a0.cairo": "func intensity_plot_arr() -> (syscall_ptr: felt, range_check_ptr: felt, size: felt, retdata: felt*) {\n    alloc_locals;\n}\n",
                 "autogen/starknet/external/intensity_plot_arr/fd099223670ab5d428127810c2328d37c65c29951c7abc7cebaa651b40be0a6a.cairo": "let range_check_ptr = [cast([cast(fp + (-5), felt**)] + 1, felt*)];\n",
+                "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo": "let ret_value = __wrapped_func{range_check_ptr=range_check_ptr}(num_pts=__calldata_arg_num_pts, lambda=__calldata_arg_lambda, d=__calldata_arg_d,);\nlet (range_check_ptr, retdata_size, retdata) = intensity_plot_arr_encode_return(ret_value, range_check_ptr);\n",
                 "autogen/starknet/external/return/intensity_plot_arr/aaff60667fdec26a73c1473eb7ccc2b9a42f620595e2503e42df0bd4cbdc9af0.cairo": "func intensity_plot_arr_encode_return(ret_value: (intensity_s_len: felt, intensity_s: felt*), range_check_ptr) -> (\n        range_check_ptr: felt, data_len: felt, data: felt*) {\n    %{ memory[ap] = segments.add() %}\n    alloc_locals;\n    local __return_value_ptr_start: felt*;\n    let __return_value_ptr = __return_value_ptr_start;\n    with range_check_ptr {\n    }\n    return (\n        range_check_ptr=range_check_ptr,\n        data_len=__return_value_ptr - __return_value_ptr_start,\n        data=__return_value_ptr_start);\n}\n"
             },
             "instruction_locations": {
@@ -10291,12 +10295,12 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 31,
+                        "end_col": 47,
                         "end_line": 97,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
-                        "start_col": 24,
+                        "start_col": 5,
                         "start_line": 97
                     }
                 },
@@ -10309,28 +10313,16 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 20,
-                        "end_line": 97,
+                        "end_col": 37,
+                        "end_line": 98,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
-                        "parent_location": [
-                            {
-                                "end_col": 20,
-                                "end_line": 97,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 10,
-                                "start_line": 97
-                            },
-                            "While auto generating local variable for 'x_s'."
-                        ],
-                        "start_col": 10,
-                        "start_line": 97
+                        "start_col": 5,
+                        "start_line": 98
                     }
                 },
-                "500": {
+                "501": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -10340,42 +10332,12 @@
                     "hints": [],
                     "inst": {
                         "end_col": 31,
-                        "end_line": 98,
+                        "end_line": 101,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "start_col": 24,
-                        "start_line": 98
-                    }
-                },
-                "502": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 20,
-                        "end_line": 98,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 20,
-                                "end_line": 98,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 10,
-                                "start_line": 98
-                            },
-                            "While auto generating local variable for 'y_s'."
-                        ],
-                        "start_col": 10,
-                        "start_line": 98
+                        "start_line": 101
                     }
                 },
                 "503": {
@@ -10387,16 +10349,94 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
+                        "end_col": 20,
+                        "end_line": 101,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 20,
+                                "end_line": 101,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 10,
+                                "start_line": 101
+                            },
+                            "While auto generating local variable for 'x_s'."
+                        ],
+                        "start_col": 10,
+                        "start_line": 101
+                    }
+                },
+                "504": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 31,
+                        "end_line": 102,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 24,
+                        "start_line": 102
+                    }
+                },
+                "506": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 20,
+                        "end_line": 102,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 20,
+                                "end_line": 102,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 10,
+                                "start_line": 102
+                            },
+                            "While auto generating local variable for 'y_s'."
+                        ],
+                        "start_col": 10,
+                        "start_line": 102
+                    }
+                },
+                "507": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
                         "end_col": 39,
-                        "end_line": 99,
+                        "end_line": 103,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "start_col": 32,
-                        "start_line": 99
+                        "start_line": 103
                     }
                 },
-                "505": {
+                "509": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -10406,27 +10446,27 @@
                     "hints": [],
                     "inst": {
                         "end_col": 28,
-                        "end_line": 99,
+                        "end_line": 103,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 28,
-                                "end_line": 99,
+                                "end_line": 103,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "start_col": 10,
-                                "start_line": 99
+                                "start_line": 103
                             },
                             "While auto generating local variable for 'intensity_s'."
                         ],
                         "start_col": 10,
-                        "start_line": 99
+                        "start_line": 103
                     }
                 },
-                "506": {
+                "510": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -10450,12 +10490,12 @@
                                 "parent_location": [
                                     {
                                         "end_col": 50,
-                                        "end_line": 103,
+                                        "end_line": 107,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
                                         "start_col": 19,
-                                        "start_line": 103
+                                        "start_line": 107
                                     },
                                     "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                 ],
@@ -10468,54 +10508,6 @@
                         "start_line": 91
                     }
                 },
-                "507": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 32,
-                        "end_line": 102,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 36,
-                                "end_line": 103,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 29,
-                                "start_line": 103
-                            },
-                            "While expanding the reference 'x_width' in:"
-                        ],
-                        "start_col": 19,
-                        "start_line": 102
-                    }
-                },
-                "509": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 49,
-                        "end_line": 103,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 38,
-                        "start_line": 103
-                    }
-                },
                 "511": {
                     "accessible_scopes": [
                         "__main__",
@@ -10525,16 +10517,64 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
+                        "end_col": 32,
+                        "end_line": 106,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 36,
+                                "end_line": 107,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 29,
+                                "start_line": 107
+                            },
+                            "While expanding the reference 'x_width' in:"
+                        ],
+                        "start_col": 19,
+                        "start_line": 106
+                    }
+                },
+                "513": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 49,
+                        "end_line": 107,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 38,
+                        "start_line": 107
+                    }
+                },
+                "515": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
                         "end_col": 50,
-                        "end_line": 103,
+                        "end_line": 107,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "start_col": 19,
-                        "start_line": 103
+                        "start_line": 107
                     }
                 },
-                "513": {
+                "517": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -10551,7 +10591,7 @@
                         "parent_location": [
                             {
                                 "end_col": 50,
-                                "end_line": 103,
+                                "end_line": 107,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
@@ -10565,12 +10605,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 51,
-                                                "end_line": 105,
+                                                "end_line": 109,
                                                 "input_file": {
                                                     "filename": "contracts/intensity_plot.cairo"
                                                 },
                                                 "start_col": 19,
-                                                "start_line": 105
+                                                "start_line": 109
                                             },
                                             "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                         ],
@@ -10580,60 +10620,12 @@
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
                                 "start_col": 19,
-                                "start_line": 103
+                                "start_line": 107
                             },
                             "While trying to update the implicit return value 'range_check_ptr' in:"
                         ],
                         "start_col": 16,
                         "start_line": 41
-                    }
-                },
-                "514": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 33,
-                        "end_line": 104,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 37,
-                                "end_line": 105,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 29,
-                                "start_line": 105
-                            },
-                            "While expanding the reference 'y_height' in:"
-                        ],
-                        "start_col": 20,
-                        "start_line": 104
-                    }
-                },
-                "516": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 50,
-                        "end_line": 105,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 39,
-                        "start_line": 105
                     }
                 },
                 "518": {
@@ -10645,13 +10637,25 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 51,
-                        "end_line": 105,
+                        "end_col": 33,
+                        "end_line": 108,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
-                        "start_col": 19,
-                        "start_line": 105
+                        "parent_location": [
+                            {
+                                "end_col": 37,
+                                "end_line": 109,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 29,
+                                "start_line": 109
+                            },
+                            "While expanding the reference 'y_height' in:"
+                        ],
+                        "start_col": 20,
+                        "start_line": 108
                     }
                 },
                 "520": {
@@ -10663,28 +10667,64 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
+                        "end_col": 50,
+                        "end_line": 109,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 39,
+                        "start_line": 109
+                    }
+                },
+                "522": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 51,
+                        "end_line": 109,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 19,
+                        "start_line": 109
+                    }
+                },
+                "524": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
                         "end_col": 16,
-                        "end_line": 105,
+                        "end_line": 109,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 16,
-                                "end_line": 105,
+                                "end_line": 109,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "start_col": 9,
-                                "start_line": 105
+                                "start_line": 109
                             },
                             "While auto generating local variable for 'delta_y'."
                         ],
                         "start_col": 9,
-                        "start_line": 105
+                        "start_line": 109
                     }
                 },
-                "521": {
+                "525": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -10701,7 +10741,7 @@
                         "parent_location": [
                             {
                                 "end_col": 51,
-                                "end_line": 105,
+                                "end_line": 109,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
@@ -10715,12 +10755,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 51,
-                                                "end_line": 105,
+                                                "end_line": 109,
                                                 "input_file": {
                                                     "filename": "contracts/intensity_plot.cairo"
                                                 },
                                                 "start_col": 19,
-                                                "start_line": 105
+                                                "start_line": 109
                                             },
                                             "While trying to update the implicit return value 'range_check_ptr' in:"
                                         ],
@@ -10730,7 +10770,7 @@
                                     "While auto generating local variable for 'range_check_ptr'."
                                 ],
                                 "start_col": 19,
-                                "start_line": 105
+                                "start_line": 109
                             },
                             "While trying to update the implicit return value 'range_check_ptr' in:"
                         ],
@@ -10738,7 +10778,529 @@
                         "start_line": 41
                     }
                 },
-                "522": {
+                "526": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 20,
+                        "end_line": 101,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 20,
+                                "end_line": 101,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 28,
+                                        "end_line": 112,
+                                        "input_file": {
+                                            "filename": "contracts/intensity_plot.cairo"
+                                        },
+                                        "start_col": 25,
+                                        "start_line": 112
+                                    },
+                                    "While expanding the reference 'x_s' in:"
+                                ],
+                                "start_col": 10,
+                                "start_line": 101
+                            },
+                            "While auto generating local variable for 'x_s'."
+                        ],
+                        "start_col": 10,
+                        "start_line": 101
+                    }
+                },
+                "527": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 35,
+                        "end_line": 112,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 30,
+                        "start_line": 112
+                    }
+                },
+                "529": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 16,
+                        "end_line": 107,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 44,
+                                "end_line": 112,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 37,
+                                "start_line": 112
+                            },
+                            "While expanding the reference 'delta_x' in:"
+                        ],
+                        "start_col": 9,
+                        "start_line": 107
+                    }
+                },
+                "530": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 55,
+                        "end_line": 91,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 53,
+                                "end_line": 112,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 46,
+                                "start_line": 112
+                            },
+                            "While expanding the reference 'num_pts' in:"
+                        ],
+                        "start_col": 42,
+                        "start_line": 91
+                    }
+                },
+                "531": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 54,
+                        "end_line": 112,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 112
+                    }
+                },
+                "533": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 20,
+                        "end_line": 102,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 20,
+                                "end_line": 102,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 28,
+                                        "end_line": 113,
+                                        "input_file": {
+                                            "filename": "contracts/intensity_plot.cairo"
+                                        },
+                                        "start_col": 25,
+                                        "start_line": 113
+                                    },
+                                    "While expanding the reference 'y_s' in:"
+                                ],
+                                "start_col": 10,
+                                "start_line": 102
+                            },
+                            "While auto generating local variable for 'y_s'."
+                        ],
+                        "start_col": 10,
+                        "start_line": 102
+                    }
+                },
+                "534": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 35,
+                        "end_line": 113,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 30,
+                        "start_line": 113
+                    }
+                },
+                "536": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 16,
+                        "end_line": 109,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 16,
+                                "end_line": 109,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 44,
+                                        "end_line": 113,
+                                        "input_file": {
+                                            "filename": "contracts/intensity_plot.cairo"
+                                        },
+                                        "start_col": 37,
+                                        "start_line": 113
+                                    },
+                                    "While expanding the reference 'delta_y' in:"
+                                ],
+                                "start_col": 9,
+                                "start_line": 109
+                            },
+                            "While auto generating local variable for 'delta_y'."
+                        ],
+                        "start_col": 9,
+                        "start_line": 109
+                    }
+                },
+                "537": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 55,
+                        "end_line": 91,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 53,
+                                "end_line": 113,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 46,
+                                "start_line": 113
+                            },
+                            "While expanding the reference 'num_pts' in:"
+                        ],
+                        "start_col": 42,
+                        "start_line": 91
+                    }
+                },
+                "538": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 54,
+                        "end_line": 113,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 113
+                    }
+                },
+                "540": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 31,
+                        "end_line": 41,
+                        "input_file": {
+                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 51,
+                                "end_line": 109,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 31,
+                                        "end_line": 41,
+                                        "input_file": {
+                                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
+                                        },
+                                        "parent_location": [
+                                            {
+                                                "end_col": 51,
+                                                "end_line": 109,
+                                                "input_file": {
+                                                    "filename": "contracts/intensity_plot.cairo"
+                                                },
+                                                "parent_location": [
+                                                    {
+                                                        "end_col": 31,
+                                                        "end_line": 41,
+                                                        "input_file": {
+                                                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
+                                                        },
+                                                        "parent_location": [
+                                                            {
+                                                                "end_col": 34,
+                                                                "end_line": 117,
+                                                                "input_file": {
+                                                                    "filename": "contracts/intensity_plot.cairo"
+                                                                },
+                                                                "start_col": 16,
+                                                                "start_line": 117
+                                                            },
+                                                            "While trying to retrieve the implicit argument 'range_check_ptr' in:"
+                                                        ],
+                                                        "start_col": 16,
+                                                        "start_line": 41
+                                                    },
+                                                    "While expanding the reference 'range_check_ptr' in:"
+                                                ],
+                                                "start_col": 19,
+                                                "start_line": 109
+                                            },
+                                            "While trying to update the implicit return value 'range_check_ptr' in:"
+                                        ],
+                                        "start_col": 16,
+                                        "start_line": 41
+                                    },
+                                    "While auto generating local variable for 'range_check_ptr'."
+                                ],
+                                "start_col": 19,
+                                "start_line": 109
+                            },
+                            "While trying to update the implicit return value 'range_check_ptr' in:"
+                        ],
+                        "start_col": 16,
+                        "start_line": 41
+                    }
+                },
+                "541": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 15,
+                        "end_line": 98,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 30,
+                                "end_line": 117,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 26,
+                                "start_line": 117
+                            },
+                            "While expanding the reference 'd_fp' in:"
+                        ],
+                        "start_col": 11,
+                        "start_line": 98
+                    }
+                },
+                "542": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 33,
+                        "end_line": 117,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 32,
+                        "start_line": 117
+                    }
+                },
+                "544": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 34,
+                        "end_line": 117,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 16,
+                        "start_line": 117
+                    }
+                },
+                "546": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 17,
+                        "end_line": 123,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 123
+                    }
+                },
+                "548": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 31,
+                        "end_line": 41,
+                        "input_file": {
+                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 34,
+                                "end_line": 117,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 28,
+                                        "end_line": 26,
+                                        "input_file": {
+                                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
+                                        },
+                                        "parent_location": [
+                                            {
+                                                "end_col": 40,
+                                                "end_line": 125,
+                                                "input_file": {
+                                                    "filename": "contracts/intensity_plot.cairo"
+                                                },
+                                                "start_col": 15,
+                                                "start_line": 125
+                                            },
+                                            "While trying to retrieve the implicit argument 'range_check_ptr' in:"
+                                        ],
+                                        "start_col": 13,
+                                        "start_line": 26
+                                    },
+                                    "While expanding the reference 'range_check_ptr' in:"
+                                ],
+                                "start_col": 16,
+                                "start_line": 117
+                            },
+                            "While trying to update the implicit return value 'range_check_ptr' in:"
+                        ],
+                        "start_col": 16,
+                        "start_line": 41
+                    }
+                },
+                "549": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 28,
+                        "end_line": 125,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 22,
+                        "start_line": 125
+                    }
+                },
+                "551": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -10754,630 +11316,18 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 20,
-                                "end_line": 97,
+                                "end_col": 39,
+                                "end_line": 125,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
-                                "parent_location": [
-                                    {
-                                        "end_col": 28,
-                                        "end_line": 108,
-                                        "input_file": {
-                                            "filename": "contracts/intensity_plot.cairo"
-                                        },
-                                        "start_col": 25,
-                                        "start_line": 108
-                                    },
-                                    "While expanding the reference 'x_s' in:"
-                                ],
-                                "start_col": 10,
-                                "start_line": 97
+                                "start_col": 30,
+                                "start_line": 125
                             },
-                            "While auto generating local variable for 'x_s'."
+                            "While expanding the reference 'lambda_fp' in:"
                         ],
-                        "start_col": 10,
+                        "start_col": 11,
                         "start_line": 97
-                    }
-                },
-                "523": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 35,
-                        "end_line": 108,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 30,
-                        "start_line": 108
-                    }
-                },
-                "525": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 16,
-                        "end_line": 103,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 44,
-                                "end_line": 108,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 37,
-                                "start_line": 108
-                            },
-                            "While expanding the reference 'delta_x' in:"
-                        ],
-                        "start_col": 9,
-                        "start_line": 103
-                    }
-                },
-                "526": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 55,
-                        "end_line": 91,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 53,
-                                "end_line": 108,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 46,
-                                "start_line": 108
-                            },
-                            "While expanding the reference 'num_pts' in:"
-                        ],
-                        "start_col": 42,
-                        "start_line": 91
-                    }
-                },
-                "527": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 54,
-                        "end_line": 108,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 5,
-                        "start_line": 108
-                    }
-                },
-                "529": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 20,
-                        "end_line": 98,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 20,
-                                "end_line": 98,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 28,
-                                        "end_line": 109,
-                                        "input_file": {
-                                            "filename": "contracts/intensity_plot.cairo"
-                                        },
-                                        "start_col": 25,
-                                        "start_line": 109
-                                    },
-                                    "While expanding the reference 'y_s' in:"
-                                ],
-                                "start_col": 10,
-                                "start_line": 98
-                            },
-                            "While auto generating local variable for 'y_s'."
-                        ],
-                        "start_col": 10,
-                        "start_line": 98
-                    }
-                },
-                "530": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 35,
-                        "end_line": 109,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 30,
-                        "start_line": 109
-                    }
-                },
-                "532": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 16,
-                        "end_line": 105,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 16,
-                                "end_line": 105,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 44,
-                                        "end_line": 109,
-                                        "input_file": {
-                                            "filename": "contracts/intensity_plot.cairo"
-                                        },
-                                        "start_col": 37,
-                                        "start_line": 109
-                                    },
-                                    "While expanding the reference 'delta_y' in:"
-                                ],
-                                "start_col": 9,
-                                "start_line": 105
-                            },
-                            "While auto generating local variable for 'delta_y'."
-                        ],
-                        "start_col": 9,
-                        "start_line": 105
-                    }
-                },
-                "533": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 55,
-                        "end_line": 91,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 53,
-                                "end_line": 109,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 46,
-                                "start_line": 109
-                            },
-                            "While expanding the reference 'num_pts' in:"
-                        ],
-                        "start_col": 42,
-                        "start_line": 91
-                    }
-                },
-                "534": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 54,
-                        "end_line": 109,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 5,
-                        "start_line": 109
-                    }
-                },
-                "536": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 31,
-                        "end_line": 41,
-                        "input_file": {
-                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 51,
-                                "end_line": 105,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 31,
-                                        "end_line": 41,
-                                        "input_file": {
-                                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
-                                        },
-                                        "parent_location": [
-                                            {
-                                                "end_col": 51,
-                                                "end_line": 105,
-                                                "input_file": {
-                                                    "filename": "contracts/intensity_plot.cairo"
-                                                },
-                                                "parent_location": [
-                                                    {
-                                                        "end_col": 31,
-                                                        "end_line": 41,
-                                                        "input_file": {
-                                                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
-                                                        },
-                                                        "parent_location": [
-                                                            {
-                                                                "end_col": 31,
-                                                                "end_line": 113,
-                                                                "input_file": {
-                                                                    "filename": "contracts/intensity_plot.cairo"
-                                                                },
-                                                                "start_col": 16,
-                                                                "start_line": 113
-                                                            },
-                                                            "While trying to retrieve the implicit argument 'range_check_ptr' in:"
-                                                        ],
-                                                        "start_col": 16,
-                                                        "start_line": 41
-                                                    },
-                                                    "While expanding the reference 'range_check_ptr' in:"
-                                                ],
-                                                "start_col": 19,
-                                                "start_line": 105
-                                            },
-                                            "While trying to update the implicit return value 'range_check_ptr' in:"
-                                        ],
-                                        "start_col": 16,
-                                        "start_line": 41
-                                    },
-                                    "While auto generating local variable for 'range_check_ptr'."
-                                ],
-                                "start_col": 19,
-                                "start_line": 105
-                            },
-                            "While trying to update the implicit return value 'range_check_ptr' in:"
-                        ],
-                        "start_col": 16,
-                        "start_line": 41
-                    }
-                },
-                "537": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 73,
-                        "end_line": 91,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 27,
-                                "end_line": 113,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 26,
-                                "start_line": 113
-                            },
-                            "While expanding the reference 'd' in:"
-                        ],
-                        "start_col": 66,
-                        "start_line": 91
-                    }
-                },
-                "538": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 30,
-                        "end_line": 113,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 29,
-                        "start_line": 113
-                    }
-                },
-                "540": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 31,
-                        "end_line": 113,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 16,
-                        "start_line": 113
-                    }
-                },
-                "542": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 17,
-                        "end_line": 119,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 5,
-                        "start_line": 119
-                    }
-                },
-                "544": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 31,
-                        "end_line": 41,
-                        "input_file": {
-                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 31,
-                                "end_line": 113,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 28,
-                                        "end_line": 18,
-                                        "input_file": {
-                                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
-                                        },
-                                        "parent_location": [
-                                            {
-                                                "end_col": 36,
-                                                "end_line": 121,
-                                                "input_file": {
-                                                    "filename": "contracts/intensity_plot.cairo"
-                                                },
-                                                "start_col": 19,
-                                                "start_line": 121
-                                            },
-                                            "While trying to retrieve the implicit argument 'range_check_ptr' in:"
-                                        ],
-                                        "start_col": 13,
-                                        "start_line": 18
-                                    },
-                                    "While expanding the reference 'range_check_ptr' in:"
-                                ],
-                                "start_col": 16,
-                                "start_line": 113
-                            },
-                            "While trying to update the implicit return value 'range_check_ptr' in:"
-                        ],
-                        "start_col": 16,
-                        "start_line": 41
-                    }
-                },
-                "545": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 32,
-                        "end_line": 121,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 26,
-                        "start_line": 121
-                    }
-                },
-                "547": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 64,
-                        "end_line": 91,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 35,
-                                "end_line": 121,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 34,
-                                "start_line": 121
-                            },
-                            "While expanding the reference 'f' in:"
-                        ],
-                        "start_col": 57,
-                        "start_line": 91
-                    }
-                },
-                "548": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 36,
-                        "end_line": 121,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 19,
-                        "start_line": 121
-                    }
-                },
-                "550": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 37,
-                        "end_line": 121,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 5,
-                        "start_line": 121
-                    }
-                },
-                "551": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 28,
-                        "end_line": 18,
-                        "input_file": {
-                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 36,
-                                "end_line": 121,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 28,
-                                        "end_line": 26,
-                                        "input_file": {
-                                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
-                                        },
-                                        "parent_location": [
-                                            {
-                                                "end_col": 31,
-                                                "end_line": 123,
-                                                "input_file": {
-                                                    "filename": "contracts/intensity_plot.cairo"
-                                                },
-                                                "start_col": 15,
-                                                "start_line": 123
-                                            },
-                                            "While trying to retrieve the implicit argument 'range_check_ptr' in:"
-                                        ],
-                                        "start_col": 13,
-                                        "start_line": 26
-                                    },
-                                    "While expanding the reference 'range_check_ptr' in:"
-                                ],
-                                "start_col": 19,
-                                "start_line": 121
-                            },
-                            "While trying to update the implicit return value 'range_check_ptr' in:"
-                        ],
-                        "start_col": 13,
-                        "start_line": 18
                     }
                 },
                 "552": {
@@ -11389,64 +11339,16 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 16,
-                        "end_line": 121,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 27,
-                                "end_line": 123,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 22,
-                                "start_line": 123
-                            },
-                            "While expanding the reference 'omega' in:"
-                        ],
-                        "start_col": 11,
-                        "start_line": 121
-                    }
-                },
-                "553": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 30,
-                        "end_line": 123,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "start_col": 29,
-                        "start_line": 123
-                    }
-                },
-                "555": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 31,
-                        "end_line": 123,
+                        "end_col": 40,
+                        "end_line": 125,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "start_col": 15,
-                        "start_line": 123
+                        "start_line": 125
                     }
                 },
-                "557": {
+                "554": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -11455,16 +11357,16 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 32,
-                        "end_line": 123,
+                        "end_col": 41,
+                        "end_line": 125,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 123
+                        "start_line": 125
                     }
                 },
-                "558": {
+                "555": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -11480,8 +11382,146 @@
                         },
                         "parent_location": [
                             {
+                                "end_col": 40,
+                                "end_line": 125,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 28,
+                                        "end_line": 18,
+                                        "input_file": {
+                                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
+                                        },
+                                        "parent_location": [
+                                            {
+                                                "end_col": 31,
+                                                "end_line": 127,
+                                                "input_file": {
+                                                    "filename": "contracts/intensity_plot.cairo"
+                                                },
+                                                "start_col": 19,
+                                                "start_line": 127
+                                            },
+                                            "While trying to retrieve the implicit argument 'range_check_ptr' in:"
+                                        ],
+                                        "start_col": 13,
+                                        "start_line": 18
+                                    },
+                                    "While expanding the reference 'range_check_ptr' in:"
+                                ],
+                                "start_col": 15,
+                                "start_line": 125
+                            },
+                            "While trying to update the implicit return value 'range_check_ptr' in:"
+                        ],
+                        "start_col": 13,
+                        "start_line": 26
+                    }
+                },
+                "556": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 27,
+                        "end_line": 127,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 26,
+                        "start_line": 127
+                    }
+                },
+                "558": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 12,
+                        "end_line": 125,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 30,
+                                "end_line": 127,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 29,
+                                "start_line": 127
+                            },
+                            "While expanding the reference 'k' in:"
+                        ],
+                        "start_col": 11,
+                        "start_line": 125
+                    }
+                },
+                "559": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 31,
+                        "end_line": 127,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 19,
+                        "start_line": 127
+                    }
+                },
+                "561": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 32,
+                        "end_line": 127,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 127
+                    }
+                },
+                "562": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 28,
+                        "end_line": 18,
+                        "input_file": {
+                            "filename": "/home/whatthedev/two_source_interference/contracts/math.cairo"
+                        },
+                        "parent_location": [
+                            {
                                 "end_col": 31,
-                                "end_line": 123,
+                                "end_line": 127,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
@@ -11495,12 +11535,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 85,
-                                                "end_line": 136,
+                                                "end_line": 141,
                                                 "input_file": {
                                                     "filename": "contracts/intensity_plot.cairo"
                                                 },
                                                 "start_col": 5,
-                                                "start_line": 136
+                                                "start_line": 141
                                             },
                                             "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                         ],
@@ -11509,16 +11549,16 @@
                                     },
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
-                                "start_col": 15,
-                                "start_line": 123
+                                "start_col": 19,
+                                "start_line": 127
                             },
                             "While trying to update the implicit return value 'range_check_ptr' in:"
                         ],
                         "start_col": 13,
-                        "start_line": 26
+                        "start_line": 18
                     }
                 },
-                "559": {
+                "563": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -11528,27 +11568,27 @@
                     "hints": [],
                     "inst": {
                         "end_col": 12,
-                        "end_line": 119,
+                        "end_line": 123,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 36,
-                                "end_line": 136,
+                                "end_line": 141,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "start_col": 35,
-                                "start_line": 136
+                                "start_line": 141
                             },
                             "While expanding the reference 't' in:"
                         ],
                         "start_col": 11,
-                        "start_line": 119
+                        "start_line": 123
                     }
                 },
-                "560": {
+                "564": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -11558,39 +11598,39 @@
                     "hints": [],
                     "inst": {
                         "end_col": 28,
-                        "end_line": 99,
+                        "end_line": 103,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 28,
-                                "end_line": 99,
+                                "end_line": 103,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 49,
-                                        "end_line": 136,
+                                        "end_line": 141,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
                                         "start_col": 38,
-                                        "start_line": 136
+                                        "start_line": 141
                                     },
                                     "While expanding the reference 'intensity_s' in:"
                                 ],
                                 "start_col": 10,
-                                "start_line": 99
+                                "start_line": 103
                             },
                             "While auto generating local variable for 'intensity_s'."
                         ],
                         "start_col": 10,
-                        "start_line": 99
+                        "start_line": 103
                     }
                 },
-                "561": {
+                "565": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -11600,39 +11640,39 @@
                     "hints": [],
                     "inst": {
                         "end_col": 20,
-                        "end_line": 97,
+                        "end_line": 101,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 97,
+                                "end_line": 101,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 54,
-                                        "end_line": 136,
+                                        "end_line": 141,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
                                         "start_col": 51,
-                                        "start_line": 136
+                                        "start_line": 141
                                     },
                                     "While expanding the reference 'x_s' in:"
                                 ],
                                 "start_col": 10,
-                                "start_line": 97
+                                "start_line": 101
                             },
                             "While auto generating local variable for 'x_s'."
                         ],
                         "start_col": 10,
-                        "start_line": 97
+                        "start_line": 101
                     }
                 },
-                "562": {
+                "566": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -11642,39 +11682,39 @@
                     "hints": [],
                     "inst": {
                         "end_col": 20,
-                        "end_line": 98,
+                        "end_line": 102,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 98,
+                                "end_line": 102,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 59,
-                                        "end_line": 136,
+                                        "end_line": 141,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
                                         "start_col": 56,
-                                        "start_line": 136
+                                        "start_line": 141
                                     },
                                     "While expanding the reference 'y_s' in:"
                                 ],
                                 "start_col": 10,
-                                "start_line": 98
+                                "start_line": 102
                             },
                             "While auto generating local variable for 'y_s'."
                         ],
                         "start_col": 10,
-                        "start_line": 98
+                        "start_line": 102
                     }
                 },
-                "563": {
+                "567": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -11691,12 +11731,12 @@
                         "parent_location": [
                             {
                                 "end_col": 68,
-                                "end_line": 136,
+                                "end_line": 141,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "start_col": 61,
-                                "start_line": 136
+                                "start_line": 141
                             },
                             "While expanding the reference 'num_pts' in:"
                         ],
@@ -11704,7 +11744,7 @@
                         "start_line": 91
                     }
                 },
-                "564": {
+                "568": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -11721,167 +11761,17 @@
                         "parent_location": [
                             {
                                 "end_col": 77,
-                                "end_line": 136,
+                                "end_line": 141,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "start_col": 70,
-                                "start_line": 136
+                                "start_line": 141
                             },
                             "While expanding the reference 'num_pts' in:"
                         ],
                         "start_col": 42,
                         "start_line": 91
-                    }
-                },
-                "565": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 16,
-                        "end_line": 121,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 43,
-                                "end_line": 126,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 47,
-                                        "end_line": 133,
-                                        "input_file": {
-                                            "filename": "contracts/intensity_plot.cairo"
-                                        },
-                                        "parent_location": [
-                                            {
-                                                "end_col": 84,
-                                                "end_line": 136,
-                                                "input_file": {
-                                                    "filename": "contracts/intensity_plot.cairo"
-                                                },
-                                                "start_col": 79,
-                                                "start_line": 136
-                                            },
-                                            "While expanding the reference 'waves' in:"
-                                        ],
-                                        "start_col": 41,
-                                        "start_line": 133
-                                    },
-                                    "While expanding the reference 'common' in:"
-                                ],
-                                "start_col": 38,
-                                "start_line": 126
-                            },
-                            "While expanding the reference 'omega' in:"
-                        ],
-                        "start_col": 11,
-                        "start_line": 121
-                    }
-                },
-                "566": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 12,
-                        "end_line": 123,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 48,
-                                "end_line": 126,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 47,
-                                        "end_line": 133,
-                                        "input_file": {
-                                            "filename": "contracts/intensity_plot.cairo"
-                                        },
-                                        "parent_location": [
-                                            {
-                                                "end_col": 84,
-                                                "end_line": 136,
-                                                "input_file": {
-                                                    "filename": "contracts/intensity_plot.cairo"
-                                                },
-                                                "start_col": 79,
-                                                "start_line": 136
-                                            },
-                                            "While expanding the reference 'waves' in:"
-                                        ],
-                                        "start_col": 41,
-                                        "start_line": 133
-                                    },
-                                    "While expanding the reference 'common' in:"
-                                ],
-                                "start_col": 47,
-                                "start_line": 126
-                            },
-                            "While expanding the reference 'k' in:"
-                        ],
-                        "start_col": 11,
-                        "start_line": 123
-                    }
-                },
-                "567": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 69,
-                        "end_line": 126,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 47,
-                                "end_line": 133,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 84,
-                                        "end_line": 136,
-                                        "input_file": {
-                                            "filename": "contracts/intensity_plot.cairo"
-                                        },
-                                        "start_col": 79,
-                                        "start_line": 136
-                                    },
-                                    "While expanding the reference 'waves' in:"
-                                ],
-                                "start_col": 41,
-                                "start_line": 133
-                            },
-                            "While expanding the reference 'common' in:"
-                        ],
-                        "start_col": 60,
-                        "start_line": 126
                     }
                 },
                 "569": {
@@ -11893,49 +11783,103 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 17,
-                        "end_line": 112,
+                        "end_col": 16,
+                        "end_line": 127,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 38,
-                                "end_line": 129,
+                                "end_col": 43,
+                                "end_line": 131,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 62,
-                                        "end_line": 133,
+                                        "end_col": 47,
+                                        "end_line": 138,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 84,
-                                                "end_line": 136,
+                                                "end_line": 141,
                                                 "input_file": {
                                                     "filename": "contracts/intensity_plot.cairo"
                                                 },
                                                 "start_col": 79,
-                                                "start_line": 136
+                                                "start_line": 141
                                             },
                                             "While expanding the reference 'waves' in:"
                                         ],
-                                        "start_col": 56,
-                                        "start_line": 133
+                                        "start_col": 41,
+                                        "start_line": 138
                                     },
-                                    "While expanding the reference 'wave_1' in:"
+                                    "While expanding the reference 'common' in:"
                                 ],
-                                "start_col": 34,
-                                "start_line": 129
+                                "start_col": 38,
+                                "start_line": 131
                             },
-                            "While expanding the reference 'x0_1' in:"
+                            "While expanding the reference 'omega' in:"
                         ],
-                        "start_col": 16,
-                        "start_line": 112
+                        "start_col": 11,
+                        "start_line": 127
+                    }
+                },
+                "570": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 12,
+                        "end_line": 125,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 48,
+                                "end_line": 131,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 47,
+                                        "end_line": 138,
+                                        "input_file": {
+                                            "filename": "contracts/intensity_plot.cairo"
+                                        },
+                                        "parent_location": [
+                                            {
+                                                "end_col": 84,
+                                                "end_line": 141,
+                                                "input_file": {
+                                                    "filename": "contracts/intensity_plot.cairo"
+                                                },
+                                                "start_col": 79,
+                                                "start_line": 141
+                                            },
+                                            "While expanding the reference 'waves' in:"
+                                        ],
+                                        "start_col": 41,
+                                        "start_line": 138
+                                    },
+                                    "While expanding the reference 'common' in:"
+                                ],
+                                "start_col": 47,
+                                "start_line": 131
+                            },
+                            "While expanding the reference 'k' in:"
+                        ],
+                        "start_col": 11,
+                        "start_line": 125
                     }
                 },
                 "571": {
@@ -11947,94 +11891,40 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 13,
-                        "end_line": 113,
+                        "end_col": 69,
+                        "end_line": 131,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 47,
-                                "end_line": 129,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 62,
-                                        "end_line": 133,
-                                        "input_file": {
-                                            "filename": "contracts/intensity_plot.cairo"
-                                        },
-                                        "parent_location": [
-                                            {
-                                                "end_col": 84,
-                                                "end_line": 136,
-                                                "input_file": {
-                                                    "filename": "contracts/intensity_plot.cairo"
-                                                },
-                                                "start_col": 79,
-                                                "start_line": 136
-                                            },
-                                            "While expanding the reference 'waves' in:"
-                                        ],
-                                        "start_col": 56,
-                                        "start_line": 133
-                                    },
-                                    "While expanding the reference 'wave_1' in:"
-                                ],
-                                "start_col": 43,
-                                "start_line": 129
-                            },
-                            "While expanding the reference 'y0_1' in:"
-                        ],
-                        "start_col": 9,
-                        "start_line": 113
-                    }
-                },
-                "572": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 58,
-                        "end_line": 129,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 62,
-                                "end_line": 133,
+                                "end_line": 138,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 84,
-                                        "end_line": 136,
+                                        "end_line": 141,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
                                         "start_col": 79,
-                                        "start_line": 136
+                                        "start_line": 141
                                     },
                                     "While expanding the reference 'waves' in:"
                                 ],
-                                "start_col": 56,
-                                "start_line": 133
+                                "start_col": 41,
+                                "start_line": 138
                             },
-                            "While expanding the reference 'wave_1' in:"
+                            "While expanding the reference 'common' in:"
                         ],
-                        "start_col": 53,
-                        "start_line": 129
+                        "start_col": 60,
+                        "start_line": 131
                     }
                 },
-                "574": {
+                "573": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12044,48 +11934,102 @@
                     "hints": [],
                     "inst": {
                         "end_col": 17,
-                        "end_line": 114,
+                        "end_line": 116,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 38,
-                                "end_line": 130,
+                                "end_line": 134,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 77,
-                                        "end_line": 133,
+                                        "end_col": 62,
+                                        "end_line": 138,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 84,
-                                                "end_line": 136,
+                                                "end_line": 141,
                                                 "input_file": {
                                                     "filename": "contracts/intensity_plot.cairo"
                                                 },
                                                 "start_col": 79,
-                                                "start_line": 136
+                                                "start_line": 141
                                             },
                                             "While expanding the reference 'waves' in:"
                                         ],
-                                        "start_col": 71,
-                                        "start_line": 133
+                                        "start_col": 56,
+                                        "start_line": 138
                                     },
-                                    "While expanding the reference 'wave_2' in:"
+                                    "While expanding the reference 'wave_1' in:"
                                 ],
                                 "start_col": 34,
-                                "start_line": 130
+                                "start_line": 134
                             },
-                            "While expanding the reference 'x0_2' in:"
+                            "While expanding the reference 'x0_1' in:"
                         ],
                         "start_col": 16,
-                        "start_line": 114
+                        "start_line": 116
+                    }
+                },
+                "575": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 13,
+                        "end_line": 117,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 47,
+                                "end_line": 134,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 62,
+                                        "end_line": 138,
+                                        "input_file": {
+                                            "filename": "contracts/intensity_plot.cairo"
+                                        },
+                                        "parent_location": [
+                                            {
+                                                "end_col": 84,
+                                                "end_line": 141,
+                                                "input_file": {
+                                                    "filename": "contracts/intensity_plot.cairo"
+                                                },
+                                                "start_col": 79,
+                                                "start_line": 141
+                                            },
+                                            "While expanding the reference 'waves' in:"
+                                        ],
+                                        "start_col": 56,
+                                        "start_line": 138
+                                    },
+                                    "While expanding the reference 'wave_1' in:"
+                                ],
+                                "start_col": 43,
+                                "start_line": 134
+                            },
+                            "While expanding the reference 'y0_1' in:"
+                        ],
+                        "start_col": 9,
+                        "start_line": 117
                     }
                 },
                 "576": {
@@ -12097,49 +12041,37 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 21,
-                        "end_line": 115,
+                        "end_col": 58,
+                        "end_line": 134,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 47,
-                                "end_line": 130,
+                                "end_col": 62,
+                                "end_line": 138,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 77,
-                                        "end_line": 133,
+                                        "end_col": 84,
+                                        "end_line": 141,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
-                                        "parent_location": [
-                                            {
-                                                "end_col": 84,
-                                                "end_line": 136,
-                                                "input_file": {
-                                                    "filename": "contracts/intensity_plot.cairo"
-                                                },
-                                                "start_col": 79,
-                                                "start_line": 136
-                                            },
-                                            "While expanding the reference 'waves' in:"
-                                        ],
-                                        "start_col": 71,
-                                        "start_line": 133
+                                        "start_col": 79,
+                                        "start_line": 141
                                     },
-                                    "While expanding the reference 'wave_2' in:"
+                                    "While expanding the reference 'waves' in:"
                                 ],
-                                "start_col": 43,
-                                "start_line": 130
+                                "start_col": 56,
+                                "start_line": 138
                             },
-                            "While expanding the reference 'y0_2' in:"
+                            "While expanding the reference 'wave_1' in:"
                         ],
-                        "start_col": 16,
-                        "start_line": 115
+                        "start_col": 53,
+                        "start_line": 134
                     }
                 },
                 "578": {
@@ -12151,37 +12083,49 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 58,
-                        "end_line": 130,
+                        "end_col": 17,
+                        "end_line": 118,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 77,
-                                "end_line": 133,
+                                "end_col": 38,
+                                "end_line": 135,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 84,
-                                        "end_line": 136,
+                                        "end_col": 77,
+                                        "end_line": 138,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
-                                        "start_col": 79,
-                                        "start_line": 136
+                                        "parent_location": [
+                                            {
+                                                "end_col": 84,
+                                                "end_line": 141,
+                                                "input_file": {
+                                                    "filename": "contracts/intensity_plot.cairo"
+                                                },
+                                                "start_col": 79,
+                                                "start_line": 141
+                                            },
+                                            "While expanding the reference 'waves' in:"
+                                        ],
+                                        "start_col": 71,
+                                        "start_line": 138
                                     },
-                                    "While expanding the reference 'waves' in:"
+                                    "While expanding the reference 'wave_2' in:"
                                 ],
-                                "start_col": 71,
-                                "start_line": 133
+                                "start_col": 34,
+                                "start_line": 135
                             },
-                            "While expanding the reference 'wave_2' in:"
+                            "While expanding the reference 'x0_2' in:"
                         ],
-                        "start_col": 53,
-                        "start_line": 130
+                        "start_col": 16,
+                        "start_line": 118
                     }
                 },
                 "580": {
@@ -12193,13 +12137,49 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 85,
-                        "end_line": 136,
+                        "end_col": 21,
+                        "end_line": 119,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
-                        "start_col": 5,
-                        "start_line": 136
+                        "parent_location": [
+                            {
+                                "end_col": 47,
+                                "end_line": 135,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 77,
+                                        "end_line": 138,
+                                        "input_file": {
+                                            "filename": "contracts/intensity_plot.cairo"
+                                        },
+                                        "parent_location": [
+                                            {
+                                                "end_col": 84,
+                                                "end_line": 141,
+                                                "input_file": {
+                                                    "filename": "contracts/intensity_plot.cairo"
+                                                },
+                                                "start_col": 79,
+                                                "start_line": 141
+                                            },
+                                            "While expanding the reference 'waves' in:"
+                                        ],
+                                        "start_col": 71,
+                                        "start_line": 138
+                                    },
+                                    "While expanding the reference 'wave_2' in:"
+                                ],
+                                "start_col": 43,
+                                "start_line": 135
+                            },
+                            "While expanding the reference 'y0_2' in:"
+                        ],
+                        "start_col": 16,
+                        "start_line": 119
                     }
                 },
                 "582": {
@@ -12211,67 +12191,37 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 44,
-                        "end_line": 139,
+                        "end_col": 58,
+                        "end_line": 135,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 44,
-                                "end_line": 141,
-                                "input_file": {
-                                    "filename": "contracts/intensity_plot.cairo"
-                                },
-                                "start_col": 29,
-                                "start_line": 141
-                            },
-                            "While expanding the reference 'intensity_s_len' in:"
-                        ],
-                        "start_col": 27,
-                        "start_line": 139
-                    }
-                },
-                "583": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.intensity_plot_arr"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 28,
-                        "end_line": 99,
-                        "input_file": {
-                            "filename": "contracts/intensity_plot.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 28,
-                                "end_line": 99,
+                                "end_col": 77,
+                                "end_line": 138,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 69,
+                                        "end_col": 84,
                                         "end_line": 141,
                                         "input_file": {
                                             "filename": "contracts/intensity_plot.cairo"
                                         },
-                                        "start_col": 58,
+                                        "start_col": 79,
                                         "start_line": 141
                                     },
-                                    "While expanding the reference 'intensity_s' in:"
+                                    "While expanding the reference 'waves' in:"
                                 ],
-                                "start_col": 10,
-                                "start_line": 99
+                                "start_col": 71,
+                                "start_line": 138
                             },
-                            "While auto generating local variable for 'intensity_s'."
+                            "While expanding the reference 'wave_2' in:"
                         ],
-                        "start_col": 10,
-                        "start_line": 99
+                        "start_col": 53,
+                        "start_line": 135
                     }
                 },
                 "584": {
@@ -12283,7 +12233,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 71,
+                        "end_col": 85,
                         "end_line": 141,
                         "input_file": {
                             "filename": "contracts/intensity_plot.cairo"
@@ -12292,7 +12242,97 @@
                         "start_line": 141
                     }
                 },
-                "585": {
+                "586": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 44,
+                        "end_line": 144,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 44,
+                                "end_line": 146,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "start_col": 29,
+                                "start_line": 146
+                            },
+                            "While expanding the reference 'intensity_s_len' in:"
+                        ],
+                        "start_col": 27,
+                        "start_line": 144
+                    }
+                },
+                "587": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 28,
+                        "end_line": 103,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 28,
+                                "end_line": 103,
+                                "input_file": {
+                                    "filename": "contracts/intensity_plot.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 69,
+                                        "end_line": 146,
+                                        "input_file": {
+                                            "filename": "contracts/intensity_plot.cairo"
+                                        },
+                                        "start_col": 58,
+                                        "start_line": 146
+                                    },
+                                    "While expanding the reference 'intensity_s' in:"
+                                ],
+                                "start_col": 10,
+                                "start_line": 103
+                            },
+                            "While auto generating local variable for 'intensity_s'."
+                        ],
+                        "start_col": 10,
+                        "start_line": 103
+                    }
+                },
+                "588": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.intensity_plot_arr"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 71,
+                        "end_line": 146,
+                        "input_file": {
+                            "filename": "contracts/intensity_plot.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 146
+                    }
+                },
+                "589": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12348,7 +12388,7 @@
                         "start_line": 4
                     }
                 },
-                "587": {
+                "591": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12379,7 +12419,7 @@
                         "start_line": 1
                     }
                 },
-                "588": {
+                "592": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12410,7 +12450,7 @@
                         "start_line": 2
                     }
                 },
-                "589": {
+                "593": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12441,7 +12481,7 @@
                         "start_line": 5
                     }
                 },
-                "591": {
+                "595": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12496,7 +12536,7 @@
                         "start_line": 2
                     }
                 },
-                "593": {
+                "597": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12527,7 +12567,7 @@
                         "start_line": 10
                     }
                 },
-                "594": {
+                "598": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12606,7 +12646,7 @@
                         "start_line": 2
                     }
                 },
-                "596": {
+                "600": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12637,7 +12677,7 @@
                         "start_line": 13
                     }
                 },
-                "597": {
+                "601": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12668,7 +12708,7 @@
                         "start_line": 14
                     }
                 },
-                "598": {
+                "602": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12699,7 +12739,7 @@
                         "start_line": 11
                     }
                 },
-                "600": {
+                "604": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12754,7 +12794,7 @@
                         "start_line": 5
                     }
                 },
-                "601": {
+                "605": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12785,7 +12825,7 @@
                         "start_line": 11
                     }
                 },
-                "602": {
+                "606": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12840,7 +12880,7 @@
                         "start_line": 5
                     }
                 },
-                "603": {
+                "607": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12871,7 +12911,7 @@
                         "start_line": 9
                     }
                 },
-                "604": {
+                "608": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12902,7 +12942,7 @@
                         "start_line": 2
                     }
                 },
-                "606": {
+                "610": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -12919,7 +12959,7 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 73,
+                                "end_col": 78,
                                 "end_line": 91,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
@@ -12972,7 +13012,7 @@
                                     },
                                     "While expanding the reference '__calldata_ptr' in:"
                                 ],
-                                "start_col": 66,
+                                "start_col": 71,
                                 "start_line": 91
                             },
                             "While handling calldata argument 'd'"
@@ -12981,7 +13021,7 @@
                         "start_line": 2
                     }
                 },
-                "608": {
+                "612": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13012,7 +13052,7 @@
                         "start_line": 1
                     }
                 },
-                "609": {
+                "613": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13039,7 +13079,7 @@
                                         "end_col": 63,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -13067,7 +13107,7 @@
                         "start_line": 1
                     }
                 },
-                "610": {
+                "614": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13094,7 +13134,7 @@
                                         "end_col": 95,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -13122,7 +13162,7 @@
                         "start_line": 1
                     }
                 },
-                "611": {
+                "615": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13132,24 +13172,24 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 40,
+                        "end_col": 45,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/ccde42d4b555747103b2c76fb464ce76af1ce861002f0626bf7c431987b41955.cairo"
+                            "filename": "autogen/starknet/arg_processor/f2f8d91a8ee9aa992c120117675a2f54960f64bbb408cb5f1de30e3cd80a72a4.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 64,
+                                "end_col": 69,
                                 "end_line": 91,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 115,
+                                        "end_col": 125,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -13163,21 +13203,21 @@
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
-                                        "start_col": 99,
+                                        "start_col": 104,
                                         "start_line": 1
                                     },
-                                    "While expanding the reference '__calldata_arg_f' in:"
+                                    "While expanding the reference '__calldata_arg_lambda' in:"
                                 ],
                                 "start_col": 57,
                                 "start_line": 91
                             },
-                            "While handling calldata argument 'f'"
+                            "While handling calldata argument 'lambda'"
                         ],
-                        "start_col": 24,
+                        "start_col": 29,
                         "start_line": 1
                     }
                 },
-                "612": {
+                "616": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13194,17 +13234,17 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 73,
+                                "end_col": 78,
                                 "end_line": 91,
                                 "input_file": {
                                     "filename": "contracts/intensity_plot.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 135,
+                                        "end_col": 145,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -13218,12 +13258,12 @@
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
-                                        "start_col": 119,
+                                        "start_col": 129,
                                         "start_line": 1
                                     },
                                     "While expanding the reference '__calldata_arg_d' in:"
                                 ],
-                                "start_col": 66,
+                                "start_col": 71,
                                 "start_line": 91
                             },
                             "While handling calldata argument 'd'"
@@ -13232,7 +13272,7 @@
                         "start_line": 1
                     }
                 },
-                "613": {
+                "617": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13251,7 +13291,7 @@
                         "start_line": 91
                     }
                 },
-                "615": {
+                "619": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13264,7 +13304,7 @@
                         "end_col": 63,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                         },
                         "parent_location": [
                             {
@@ -13278,7 +13318,7 @@
                                         "end_col": 107,
                                         "end_line": 2,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -13306,7 +13346,7 @@
                         "start_line": 1
                     }
                 },
-                "616": {
+                "620": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13319,7 +13359,7 @@
                         "end_col": 108,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                         },
                         "parent_location": [
                             {
@@ -13337,7 +13377,7 @@
                         "start_line": 2
                     }
                 },
-                "618": {
+                "622": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13392,7 +13432,7 @@
                         "start_line": 1
                     }
                 },
-                "619": {
+                "623": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13405,7 +13445,7 @@
                         "end_col": 21,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                         },
                         "parent_location": [
                             {
@@ -13447,7 +13487,7 @@
                         "start_line": 2
                     }
                 },
-                "620": {
+                "624": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13460,7 +13500,7 @@
                         "end_col": 35,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                         },
                         "parent_location": [
                             {
@@ -13502,7 +13542,7 @@
                         "start_line": 2
                     }
                 },
-                "621": {
+                "625": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13515,7 +13555,7 @@
                         "end_col": 44,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/intensity_plot_arr/4a1ab4fdf75524757914ee4fde50a4d93a1f23af683eb099f3a0198e761789ad.cairo"
+                            "filename": "autogen/starknet/external/intensity_plot_arr/fdf57b386a1142f13366522a9f7c687594ed17c1f9145c5762ffec0298b33cb3.cairo"
                         },
                         "parent_location": [
                             {
@@ -13557,7 +13597,7 @@
                         "start_line": 2
                     }
                 },
-                "622": {
+                "626": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -13841,7 +13881,7 @@
                     }
                 }
             ],
-            "585": [
+            "589": [
                 {
                     "accessible_scopes": [
                         "__main__",
@@ -13871,6 +13911,10 @@
             },
             "__main__.Indiv_params": {
                 "destination": "contracts.structs.Indiv_params",
+                "type": "alias"
+            },
+            "__main__.SCALE_FP": {
+                "destination": "contracts.constants.SCALE_FP",
                 "type": "alias"
             },
             "__main__.TWO_PI": {
@@ -13957,7 +14001,7 @@
                         "cairo_type": "felt",
                         "offset": 2
                     },
-                    "f": {
+                    "lambda": {
                         "cairo_type": "felt",
                         "offset": 1
                     },
@@ -13986,7 +14030,7 @@
             },
             "__main__.intensity_plot_arr.SIZEOF_LOCALS": {
                 "type": "const",
-                "value": 8
+                "value": 10
             },
             "__main__.intensity_s_filler_inner_loop": {
                 "decorators": [],
@@ -14146,7 +14190,7 @@
                 "decorators": [
                     "view"
                 ],
-                "pc": 604,
+                "pc": 608,
                 "type": "function"
             },
             "__wrappers__.intensity_plot_arr.Args": {
@@ -14175,7 +14219,7 @@
             },
             "__wrappers__.intensity_plot_arr_encode_return": {
                 "decorators": [],
-                "pc": 585,
+                "pc": 589,
                 "type": "function"
             },
             "__wrappers__.intensity_plot_arr_encode_return.Args": {
