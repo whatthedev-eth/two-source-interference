@@ -17,11 +17,11 @@
         "name": "intensity_plot_arr",
         "outputs": [
             {
-                "name": "intensity_s_len",
+                "name": "intensity_fp_s_len",
                 "type": "felt"
             },
             {
-                "name": "intensity_s",
+                "name": "intensity_fp_s",
                 "type": "felt*"
             }
         ],

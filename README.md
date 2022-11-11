@@ -2,22 +2,20 @@
 
 A.k.a. "Makin' Waves in Cairo!"
 
-The interference pattern produced by two wave sources with identical wavelengths is simulated. A "top-view" 2-D intensity map is created to show the wave interference pattern inside a square plot of side length 10 (arbitrary units).   
+Simulated here is the wave interference pattern produced by two wave sources with identical wavelength `lambda`. 
+- A "top-view" 2-D intensity map is created to show the pattern inside a square plot of side length 1000 (arbitrary units). 
+- The origin is at the center of the left edge of the plot. 
+- The sources are placed a distance `d` apart, on the left edge of the plot symmetrically about the origin.
 
 
 ## User Inputs
 
 Only these *integer* inputs for now:
-- `num_pts` = Number of points along each axis of the square grid
-    - Input range: 2 <= `num_pts` <= 25
-- `lambda` = Wavelength of sources
-    - Input range: 1 <= `lambda` <= 1000*
-- `d` = Distance between sources
-    - Input range: 0 <= `num_pts` <= 1000*
+- `num_pts` = number of points along each axis of the square grid, where 2 <= `num_pts` <= 25 (max value limited by allowed n_steps on testnet)
+- `lambda` >= 1
+- `d` >= 0
 
-        *Max value of 1000 = side length of square plot, scaled up by 100
-        - Allows input precision to hundredths place
-        - After input, both `lambda` and `d` are scaled up even more to be FP (fixed point) values where FP scale is `SCALE_FP` = 10**20.
+After input, both `lambda` and `d` are scaled up to be FP (fixed point) values where FP scale is `SCALE_FP` = 10**20.
 
 ## Cairo files
 

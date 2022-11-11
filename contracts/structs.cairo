@@ -2,16 +2,16 @@
 
 // Common wave parameters
 struct Common_params {
-    omega: felt,
-    k: felt,
+    omega_fp: felt,
+    k_fp: felt,
     decay_exp: felt,
 }
 
 // Individual wave's parameters
 struct Indiv_params {
-    x0: felt,
-    y0: felt,
-    phi: felt,
+    x0_fp: felt,
+    y0_fp: felt,
+    phi_fp: felt,
 }
 
 // Parameters for two waves

@@ -3,10 +3,10 @@
 from starkware.cairo.common.alloc import alloc
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 
-from contracts.constants import SCALE_FP, TWO_PI, v, phi_1, phi_2, decay_exp, x_min, x_max, y_min, y_max
-from contracts.math import mul_fp, div_fp, div_fp_ul
+from contracts.constants import SCALE_FP, TWO_PI_fp, v_fp, phi_1_fp, phi_2_fp, decay_exp, x_min_fp, x_max_fp, y_min_fp, y_max_fp
+from contracts.math import mul_fp, div_fp, div_fp_nfp
 from contracts.structs import Common_params, Indiv_params, Two_waves_params
-from contracts.wave_physics import intensity, wave_sum, wave_function
+from contracts.wave_physics import intensity_fp, wave_sum_fp, wave_function_fp
 
 //
 // Functions to fill arrays
@@ -14,8 +14,8 @@ from contracts.wave_physics import intensity, wave_sum, wave_function
 
 // Inner loop goes through all y values, for a particular x value, 
 // and calculates combined wave intensity at each position (x, y)
-func intensity_s_filler_inner_loop{range_check_ptr}(
-    t: felt, intensity_s: felt*, x_s: felt*, y_s: felt*, num_pts_y: felt, waves: Two_waves_params
+func intensity_fp_s_filler_inner_loop{range_check_ptr}(
+    t_fp: felt, intensity_fp_s: felt*, x_fp_s: felt*, y_fp_s: felt*, num_pts_y: felt, waves: Two_waves_params
 ) {
     alloc_locals;
 
@@ -25,26 +25,26 @@ func intensity_s_filler_inner_loop{range_check_ptr}(
     }
 
     // Recursively call to go through all y values
-    intensity_s_filler_inner_loop(t, intensity_s + 1, x_s, y_s + 1, num_pts_y - 1, waves);
+    intensity_fp_s_filler_inner_loop(t_fp, intensity_fp_s + 1, x_fp_s, y_fp_s + 1, num_pts_y - 1, waves);
 
     // After first return from recursive calls
-    // calculate both wave functions at time t and coordinates (x_s[0], y_s[0])
-    let wave_fn_1 = wave_function(t, x_s[0], y_s[0], waves.common, waves.wave_1);
-    let wave_fn_2 = wave_function(t, x_s[0], y_s[0], waves.common, waves.wave_2);
+    // calculate both wave functions at time t_fp and coordinates (x_fp_s[0], y_fp_s[0])
+    let wave_fn_1_fp = wave_function_fp(t_fp, x_fp_s[0], y_fp_s[0], waves.common, waves.wave_1);
+    let wave_fn_2_fp = wave_function_fp(t_fp, x_fp_s[0], y_fp_s[0], waves.common, waves.wave_2);
 
     // Add wave functions, find intensity, 
-    // and fill member of intensity_s array corresponding to (x, y)
-    assert intensity_s[0] = intensity(wave_sum(wave_fn_1, wave_fn_2));
+    // and fill member of intensity_fp_s array corresponding to (x, y)
+    assert intensity_fp_s[0] = intensity_fp(wave_sum_fp(wave_fn_1_fp, wave_fn_2_fp));
 
     return ();
 }
 
 // Outer loop goes through x values, calling inner loop at each x value
-func intensity_s_filler_outer_loop{range_check_ptr}(
-    t: felt,
-    intensity_s: felt*,
-    x_s: felt*,
-    y_s: felt*,
+func intensity_fp_s_filler_outer_loop{range_check_ptr}(
+    t_fp: felt,
+    intensity_fp_s: felt*,
+    x_fp_s: felt*,
+    y_fp_s: felt*,
     num_pts_x: felt,
     num_pts_y: felt,
     waves: Two_waves_params,
@@ -57,18 +57,18 @@ func intensity_s_filler_outer_loop{range_check_ptr}(
     }
 
     // For current x value, call inner loop to go through y all values
-    intensity_s_filler_inner_loop(t, intensity_s, x_s, y_s, num_pts_y, waves);
+    intensity_fp_s_filler_inner_loop(t_fp, intensity_fp_s, x_fp_s, y_fp_s, num_pts_y, waves);
 
     // Go to next x value
-    intensity_s_filler_outer_loop(
-        t, intensity_s + num_pts_y, x_s + 1, y_s, num_pts_x - 1, num_pts_y, waves
+    intensity_fp_s_filler_outer_loop(
+        t_fp, intensity_fp_s + num_pts_y, x_fp_s + 1, y_fp_s, num_pts_x - 1, num_pts_y, waves
     );
 
     return ();
 }
 
 // Calculate coordinate values and fill coordinate array
-func coordinate_s_filler{}(c_s: felt*, c_min: felt, delta_c: felt, num_pts: felt) {
+func coordinate_fp_s_filler{}(c_fp_s: felt*, c_min_fp: felt, delta_c_fp: felt, num_pts: felt) {
 
     // Return after cuing up all coordinate values
     if (num_pts == 0) {
@@ -76,10 +76,10 @@ func coordinate_s_filler{}(c_s: felt*, c_min: felt, delta_c: felt, num_pts: felt
     }
 
     // Recursively call to go through all coordinate values
-    coordinate_s_filler(c_s + 1, c_min + delta_c, delta_c, num_pts - 1);
+    coordinate_fp_s_filler(c_fp_s + 1, c_min_fp + delta_c_fp, delta_c_fp, num_pts - 1);
 
     // after return from 0, now c_min = c_max, num_pts = 1, begin to fill array
-    assert c_s[0] = c_min;
+    assert c_fp_s[0] = c_min_fp;
 
     return ();
 }
@@ -89,59 +89,61 @@ func coordinate_s_filler{}(c_s: felt*, c_min: felt, delta_c: felt, num_pts: felt
 //
 @view
 func intensity_plot_arr{range_check_ptr}(num_pts: felt, lambda: felt, d: felt) -> (
-    intensity_s_len: felt, intensity_s: felt*
+    intensity_fp_s_len: felt, intensity_fp_s: felt*
 ) {
     alloc_locals;
 
     // Scale up inputs lambda and d to be fixed point values
-    local lambda_fp = lambda * SCALE_FP / 100;
-    local d_fp = d * SCALE_FP / 100;
+    local lambda_fp = lambda * SCALE_FP;
+    local d_fp = d * SCALE_FP;
 
     // Allocate memory segments arrays
-    let (x_s: felt*) = alloc();
-    let (y_s: felt*) = alloc();
-    let (intensity_s: felt*) = alloc();
+    let (x_fp_s: felt*) = alloc();
+    let (y_fp_s: felt*) = alloc();
+    let (intensity_fp_s: felt*) = alloc();
 
     // Plot size and point spacing
-    let x_width = x_max - x_min;
-    let delta_x = div_fp_ul(x_width, num_pts - 1);
-    let y_height = y_max - y_min;
-    let delta_y = div_fp_ul(y_height, num_pts - 1);
+    let x_width_fp = x_max_fp - x_min_fp;
+    let delta_x_fp = div_fp_nfp(x_width_fp, num_pts - 1);
+    let y_height_fp = y_max_fp - y_min_fp;
+    let delta_y_fp = div_fp_nfp(y_height_fp, num_pts - 1);
 
-    // Fill x_s and y_s coordinate value arrays
-    coordinate_s_filler(x_s, x_min, delta_x, num_pts);
-    coordinate_s_filler(y_s, y_min, delta_y, num_pts);
+    // Fill x_fp_s and y_fp_s coordinate value arrays
+    coordinate_fp_s_filler(x_fp_s, x_min_fp, delta_x_fp, num_pts);
+    coordinate_fp_s_filler(y_fp_s, y_min_fp, delta_y_fp, num_pts);
 
     // Source positions
-    let x0_1 = 0;
-    let y0_1 = div_fp_ul(d_fp, 2);
-    let x0_2 = 0;
-    let y0_2 = -y0_1;
+    let x0_1_fp = 0;
+    let y0_1_fp = div_fp_nfp(d_fp, 2);
+    let x0_2_fp = 0;
+    let y0_2_fp = -y0_1_fp;
 
+    //
     // Wave parameters needed for plot
-    // time (for now, consider only t = 0)
-    local t = 0;
+    //
+    // time (for now, consider only t_fp = 0)
+    local t_fp = 0;
     // wave number
-    local k = div_fp(TWO_PI, lambda_fp);
+    local k_fp = div_fp(TWO_PI_fp, lambda_fp);
     // angular frequency
-    local omega = mul_fp(v, k);
+    local omega_fp = mul_fp(v_fp, k_fp);
 
 
     // Struct for waves' common physical parameters
-    let common = Common_params(omega=omega, k=k, decay_exp=decay_exp);
+    let common = Common_params(omega_fp=omega_fp, k_fp=k_fp, decay_exp=decay_exp);
 
     // Struct for each wave's individual parameters
-    let wave_1 = Indiv_params(x0=x0_1, y0=y0_1, phi=phi_1);
-    let wave_2 = Indiv_params(x0=x0_2, y0=y0_2, phi=phi_2);
+    let wave_1 = Indiv_params(x0_fp=x0_1_fp, y0_fp=y0_1_fp, phi_fp=phi_1_fp);
+    let wave_2 = Indiv_params(x0_fp=x0_2_fp, y0_fp=y0_2_fp, phi_fp=phi_2_fp);
 
     // Struct for two waves
     let waves = Two_waves_params(common=common, wave_1=wave_1, wave_2=wave_2);
 
-    // Fill intensity_s array
-    intensity_s_filler_outer_loop(t, intensity_s, x_s, y_s, num_pts, num_pts, waves);
+    // Fill intensity_fp_s array
+    intensity_fp_s_filler_outer_loop(t_fp, intensity_fp_s, x_fp_s, y_fp_s, num_pts, num_pts, waves);
 
-    // Calculate intensity_s_len
-    let intensity_s_len = num_pts * num_pts;
+    // Calculate intensity_fp_s_len
+    let intensity_fp_s_len = num_pts * num_pts;
 
-    return (intensity_s_len=intensity_s_len, intensity_s=intensity_s);
+    return (intensity_fp_s_len=intensity_fp_s_len, intensity_fp_s=intensity_fp_s);
 }
