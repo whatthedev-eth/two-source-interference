@@ -4,8 +4,8 @@ from starkware.starknet.testing.starknet import Starknet
 import asyncio
 import numpy as np
 
-# Constants from constants.cairo contract
-#
+#################################################
+# Equivalent to parts of constants.cairo contract
 #
 # Fixed point math constants
 SCALE_FP = 10**20
@@ -22,27 +22,26 @@ HALF_PRIME = (
 # Math constants
 #
 # Fixed point values
-TWO_PI = 6283185 * SCALE_FP / 1000000
-PI = TWO_PI / 2
+TWO_PI_fp = 628318530 * SCALE_FP / 100000000
+PI_fp = 314159265 * SCALE_FP / 100000000
 # Non fixed point values
-TWO_PI_no_fp = TWO_PI / SCALE_FP
-PI_no_fp = PI / SCALE_FP
+TWO_PI = TWO_PI_fp / SCALE_FP
+PI = PI_fp / SCALE_FP
 
-
-# n = number of terms in cosine approximation
+# n = Number of terms in cosine approximation
 n = 5
 
 
-#
-# Python functions
+#################################################
+# Equivalent to parts of math.cairo contract
 #
 def theta_shifter(theta):
-    # shifts theta so it is in range -pi <= theta <= +pi
-    # using PI_no_fp instead of np.pi to match cairo file
+    # Shifts theta so it is in range -pi <= theta <= +pi
+    # using PI instead of np.pi to match cairo file
     theta_abs = abs(theta)
-    if theta_abs >= PI_no_fp:
-        cycles_to_shift = 1 + ((theta_abs - PI_no_fp) / (TWO_PI_no_fp)) // 1
-        theta_abs_shifted = theta_abs - (TWO_PI_no_fp * cycles_to_shift)
+    if theta_abs >= PI:
+        cycles_to_shift = 1 + ((theta_abs - PI) / (TWO_PI)) // 1
+        theta_abs_shifted = theta_abs - (TWO_PI * cycles_to_shift)
         if theta >= 0:
             theta_shifted = theta_abs_shifted
         else:
@@ -58,7 +57,7 @@ def cosine_n_terms(theta, n):
     # cosine(theta) ~= ((-1)^n)*(theta^(2n))/(2n)!
     #               ~= 1 - theta^2/2! + theta^4/4! - theta^6/6! + ...
     cos_nth = 0
-    # must have -pi <= theta <= +pi for cosine approx., so shift theta as needed
+    # Must have -pi <= theta <= +pi for cosine approx., so shift theta as needed
     theta_shifted = theta_shifter(theta)
     for i in range(n):
         power_neg_one = (-1) ** i
@@ -93,40 +92,40 @@ async def test():
     for i in range(num_tests):
         print()
 
-        theta = int((i - ((num_tests - 1) / 2)) * PI / 4)
-        theta_no_fp = theta / SCALE_FP
+        theta_fp = int((i - ((num_tests - 1) / 2)) * PI_fp / 4)
+        theta = theta_fp / SCALE_FP
 
-        print(f"> theta       = {theta}")
-        print(f"> theta_no_fp = {theta_no_fp}")
+        print(f"> theta_fp = {theta_fp}")
+        print(f"> theta    = {theta}")
         # Add '>' before our print messages to indicate they are our messages
 
-        # Call theta_shifter(theta) and print out return value
-        ret = await contract.theta_shifter(theta=theta).call()
-        if ret.result.value >= HALF_PRIME:
-            result = ret.result.value - PRIME
+        # Call theta_shifter_fp(theta_fp) and print out return value
+        ret = await contract.theta_shifter_fp(theta_fp=theta_fp).call()
+        if ret.result.value_fp >= HALF_PRIME:
+            result_fp = ret.result.value_fp - PRIME
         else:
-            result = ret.result.value
-        print(f">       theta_shifter(theta) returns: {result}")
+            result_fp = ret.result.value_fp
+        print(f">         theta_shifter_fp(theta_fp) return: {result_fp}")
 
-        theta_shifter_py_no_fp = theta_shifter(theta_no_fp)
+        theta_shifter_py = theta_shifter(theta)
         # Scale up by SCALE_FP for comparison
-        theta_shifter_py = int(theta_shifter_py_no_fp * SCALE_FP)
-        if theta_shifter_py >= HALF_PRIME:
-            result_py = theta_shifter_py - PRIME
+        theta_shifter_py_fp = int(theta_shifter_py * SCALE_FP)
+        if theta_shifter_py_fp >= HALF_PRIME:
+            result_py_fp = theta_shifter_py_fp - PRIME
         else:
-            result_py = theta_shifter_py
-        print(f">    theta_shifter_py(theta) returns: {result_py}")
+            result_py_fp = theta_shifter_py_fp
+        print(f"> theta_shifter_py(theta) return * SCALE_FP: {result_py_fp}")
 
-        # Call cosine_8th() with theta and print out return value
-        ret = await contract.cosine_8th(theta=theta).call()
-        if ret.result.value >= HALF_PRIME:
-            result = ret.result.value - PRIME
+        # Call cosine_8th() with theta_fp and print out return value
+        ret = await contract.cosine_8th_fp(theta_fp=theta_fp).call()
+        if ret.result.value_fp >= HALF_PRIME:
+            result_fp = ret.result.value_fp - PRIME
         else:
-            result = ret.result.value
-        print(f">          cosine_8th(theta) returns: {result}")
+            result_fp = ret.result.value_fp
+        print(f">             cosine_8th_fp(theta_fp) return: {result_fp}")
 
-        cos_8th_py_no_fp = cosine_n_terms(theta_no_fp, n)
+        cos_8th_py = cosine_n_terms(theta, n)
         # Scale up by SCALE_FP for comparison
-        cos_8th_py = int(cos_8th_py_no_fp * SCALE_FP)
-        print(f">   cosine_n_terms(theta, 5) returns: {cos_8th_py}")
-        print(f">            or, with no fp, returns: {cos_8th_py_no_fp}")
+        cos_8th_py_fp = int(cos_8th_py * SCALE_FP)
+        print(f"> cosine_n_terms(theta, 5) return * SCALE_FP: {cos_8th_py_fp}")
+        print(f">     or (without mult. by SCALE_FP), return: {cos_8th_py}")
