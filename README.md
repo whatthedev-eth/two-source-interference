@@ -6,7 +6,7 @@ Simulated here is the wave interference pattern produced by two wave sources wit
 - A "top-view" 2-D intensity plot is created. 
 - The plot is square with side length 1000 (arbitrary units). 
 - The origin is at the center of the left edge of the plot. 
-- The sources are placed a distance `d` apart, on the left edge of the plot symmetrically about the origin.
+- The sources are placed a distance `d` apart on the left edge of the plot, symmetrically about the origin.
 
 
 ## User Inputs
