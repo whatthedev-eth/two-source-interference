@@ -2,6 +2,7 @@
 
 from starkware.cairo.common.alloc import alloc
 from starkware.cairo.common.cairo_builtins import HashBuiltin
+from starkware.cairo.common.math_cmp import is_le, is_nn
 
 from contracts.constants import SCALE_FP, TWO_PI_fp, v_fp, phi_1_fp, phi_2_fp, decay_exp, x_min_fp, x_max_fp, y_min_fp, y_max_fp
 from contracts.math import mul_fp, div_fp, div_fp_nfp
@@ -92,6 +93,22 @@ func intensity_plot_arr{range_check_ptr}(num_pts: felt, lambda: felt, d: felt) -
     intensity_fp_s_len: felt, intensity_fp_s: felt*
 ) {
     alloc_locals;
+
+    // Check inputs
+    with_attr error_message("Check that 2 <=num_pts <= 25") {
+        tempvar num_pts_minus_2 = num_pts - 2;
+        assert is_nn(num_pts_minus_2) = 1;
+    }
+    with_attr error_message("Check that 2 <=num_pts <= 25") {
+        assert is_le(num_pts, 25) = 1; 
+    }
+    with_attr error_message("Check that lambda >= 1") {
+        tempvar lambda_minus_1 = lambda - 1;
+        assert is_nn(lambda_minus_1) = 1;
+    }
+    with_attr error_message("Check that d >= 0") {
+        assert is_nn(d) = 1;
+    }
 
     // Scale up inputs lambda and d to be fixed point values
     local lambda_fp = lambda * SCALE_FP;
