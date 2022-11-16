@@ -3,7 +3,8 @@
 A.k.a. "Makin' Waves in Cairo!"
 
 Simulated here is the wave interference pattern produced by two wave sources with identical wavelength `lambda`. 
-- A "top-view" 2-D intensity plot is created to show the pattern inside a square plot of side length 1000 (arbitrary units). 
+- A "top-view" 2-D intensity plot is created. 
+- The plot is square with side length 1000 (arbitrary units). 
 - The origin is at the center of the left edge of the plot. 
 - The sources are placed a distance `d` apart, on the left edge of the plot symmetrically about the origin.
 
