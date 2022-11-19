@@ -77,3 +77,8 @@ After input, both `lambda` and `d` are scaled up to be FP (fixed point) values w
     - Values of `theta` to test are incremented by pi/4 in range:
         *-(pi/4)(num_tests-1)/2 <= `theta` <= +(pi/4)(num_tests-1)/2*
 - To run: `pytest -s tests/test_math.py`
+
+
+## License
+
+This repository is licensed under the MIT license.
